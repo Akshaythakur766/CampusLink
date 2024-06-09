@@ -1,0 +1,24 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 0 30px 20px;
+  }
+  
+  .parentContainer {
+    width: 46%;
+  }
+  
+  .loading {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .error {
+    font-size: 1.5rem;
+    color: red;
+    text-align: center;
+    margin: 20px;
+  }
+  

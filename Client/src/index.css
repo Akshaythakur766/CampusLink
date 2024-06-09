@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply transition-colors  duration-150  ease-in-out;
+}
+@layer utilities {
+  .buttonCol {
+    @apply dark:text-white text-background  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 text-base font-bold px-5 py-3 text-center;
+  }
+}
+
+@font-face {
+  font-family: "Scripto";
+  src: url("./assets/fonts/Scripto-2OR2v.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Scripto2";
+  src: url("./assets/fonts/Supercharge-JRgPo.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Scripto3";
+  src: url("./assets/fonts/SuperchargeStraight3D-1Gwx0.otf") format("opentype");
+}

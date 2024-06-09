@@ -1,0 +1,53 @@
+h2{
+    font-size: 2.4rem;
+    font-family: 'Work Sans',sans-serif;
+}
+
+.modal-container-add p{
+    font-size: 1.4rem;
+    margin: 1rem 0 1.4rem 0;
+    line-height: 1.8rem;
+    color: #212121;
+    font-weight: 400;
+   
+}
+
+.modal-wrapper{
+    position: fixed;
+    left: 0;    
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(200, 195, 195, 0.7);
+    z-index: 999; 
+ 
+}
+.close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #000;
+  }
+.modal-container-add{
+    position: fixed;
+    min-width: 70rem;
+    max-width: 80rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    z-index: 1000; 
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table-scrollable {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
+  
+  .text-danger {
+    color: red;
+  }

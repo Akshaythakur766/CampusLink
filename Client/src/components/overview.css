@@ -1,0 +1,95 @@
+.Main{
+  display: flex;
+}
+.overview{
+  width:65vw;
+  min-height: 90vh;  
+  border-right:  1.5px solid rgba(0, 0, 0, .12);
+  display: flex;
+  flex-direction:column;
+  gap:5px;
+  padding: 20px;
+} 
+.divClassName {
+  overflow: auto; 
+  max-height: calc(100vh - 40px); 
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b6b4b4;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+.Notification{
+  width:15vw;
+  min-height: 90vh;
+}
+
+
+.greet{
+  margin: 10px 10px 30px 10px;
+  min-height: 220px;
+  width:50%;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px #0000001a !important;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-color: #f9f9f9;
+}
+.text{
+  margin: auto;
+  width:90%;
+
+}
+ .text-h{ 
+  font-size: 28px;
+  letter-spacing: 0.1px;
+  font-weight: 700;
+  margin: 0px 0px 10px 0px;
+ }
+.text-p{
+  font-size: 14px;
+}
+.percent{
+  margin: 10px 10px 30px 10px;
+  min-height: 200px;
+  width:98%;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px #0000001a  !important;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-color: #f9f9f9;
+  gap: 2vh;
+  padding-bottom: 3vh;
+}
+
+.percent-p{
+  font-size: 18px;
+  padding: 20px 0 10px 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,84 @@
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.table-container {
+  /* position: relative; */
+  border-radius: 10px;
+  width: 77.5vw;
+  margin: 20px;
+  min-height: 25vh;
+  border: 1.5px solid rgba(0, 0, 0, .12);
+  background:radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%) ;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container thead {
+  top: 0;
+  padding: 10px;
+  border-radius: 10px;  
+  border-bottom:1.5px solid rgba(0, 0, 0, .12) ;
+}
+
+
+
+.table-container th,
+.table-container td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.table-container th:last-child {
+  width: 15vw;
+}
+
+.table-container td:last-child {
+  border-right: none;
+}
+
+.table-container tr:last-child td {
+  border-bottom: none;
+}
+
+.paragraph {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 17px;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space out items */
+  border-bottom: 1.5px solid rgba(0, 0, 0, .12);
+  background-color: #ffffff; /* Set background color if needed */
+}
+
+
+.paragraph h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.btn-addclass {
+  padding-left: 20px;
+}
+
+.class-flex {
+  display: flex;
+}
+
+.class-left {
+  height: 80vh;
+}
+
+.in-between {
+  padding: 20px;
+}
+
+
+

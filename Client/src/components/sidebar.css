@@ -1,0 +1,16 @@
+.sidebar-links{
+    font-size: 14px;
+}
+.sidebar-custom{
+    border-right: 1.5px solid rgba(0, 0, 0, .12);
+    width:21vw
+}
+.Link-custom{
+    margin: 15px 0px 20px 0px;
+    font-weight: 1000;
+    font-size: 21px;
+}   
+/* it is pf footerDash */
+.p-custom{
+    border-top: 1.5px solid rgba(0, 0, 0, .12);
+}

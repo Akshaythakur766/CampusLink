@@ -1,0 +1,13 @@
+.view-table{
+    margin: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px #0000001a !important;
+    border-radius: 10px;
+}
+
+.view-table p{
+    font-size:20px ;
+    padding: 15px 0px 20px 10px;
+    font-weight: bold;
+    border-bottom:  1.5px solid rgba(0, 0, 0, .12);
+}
