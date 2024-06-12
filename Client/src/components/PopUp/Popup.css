@@ -1,16 +1,16 @@
-    h2{
+    h2 {
         font-size: 1.4rem;
-        font-family: 'Work Sans',sans-serif;
-    
+        font-family: 'Work Sans', sans-serif;
+
     }
 
-    .modal-container p{
+    .modal-container p {
         font-size: 2rem;
         margin: 1rem 0 2rem 0;
         line-height: 1rem;
         color: #212121;
         font-weight: 600;
-       
+
     }
 
     .modal-wrapper {
@@ -20,10 +20,10 @@
         bottom: 0;
         top: 0;
         background-color: rgba(189, 189, 189, 0.7);
-        z-index: 999; 
-      } 
-      
-      .modal-container {
+        z-index: 999;
+    }
+
+    .modal-container {
         position: fixed;
         min-width: 35rem;
         max-width: 50rem;
@@ -33,23 +33,49 @@
         background-color: #fff;
         padding: 2rem 3rem;
         border-radius: 0.5rem;
-        z-index: 1000; 
-      }
-      
-     
-    .modal-container input{
+        z-index: 1000;
+    }
+
+
+    .modal-container  .input {
         width: 80%;
         height: 35px;
-        margin:20px 0px 0px 0px;
+        margin: 20px 0px 0px 0px;
         padding-left: 10px;
-        border:  2px solid rgba(0, 0, 0, .12) ;
+        border: 2px solid rgba(0, 0, 0, .12);
         border-radius: 10px;
     }
 
-    .modal-container .checkbox{
-        width:20px;
+    .modal-container .checkbox {
+        width: 20px;
         height: 20px;
         border: 1px solid black;
         margin: 0px 10px 10px 10px;
-        
+
     }
+
+
+   
+.otp-container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.otp-input {
+    width: calc(20% - 65px); /* Adjust width as needed */
+    height: 40px; /* Set height for square boxes */
+    text-align: center;
+    font-size: 16px;
+    border: 1.3px solid black; /* Black border */
+    box-sizing: border-box; /* Ensure width calculation includes padding and border */
+    border-radius: 5px;
+}
+
+.otp-input:not(:last-child) {
+    margin-right: 5px; /* Add margin between input boxes */
+}
+
+.otp-input:focus {
+    outline: none;
+    border-color: #495057;
+}

@@ -46,7 +46,7 @@ const AddClass = ({ closeModal }) => {
             <CloseIcon className='close-icon' onClick={closeModal} />
                 <p>Add class</p>
                 <h4>Enter the Subject name and select the Semester and Course name</h4>
-                <input  type="text" name="subj" value={data.subj} onChange={handleChange} placeholder='Subject Name' /><br /><br />
+                <input className='input'  type="text" name="subj" value={data.subj} onChange={handleChange} placeholder='Subject Name' /><br /><br />
 
                 <label className='fw-bold'>Select the Class</label><br />
                 <select
@@ -75,7 +75,7 @@ const AddClass = ({ closeModal }) => {
                 <option value="7th">7th</option>
                 <option value="8th">8th</option>
                 </select><br/><br/>
-                <button className='btn bg-dark text-white  ' onClick={CreateClass}>confirm</button>
+                <button className='btn bg-dark text-white  ' onClick={CreateClass}>Confirm</button>
             </div>
         </>
     );

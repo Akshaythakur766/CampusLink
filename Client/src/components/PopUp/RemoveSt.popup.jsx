@@ -24,6 +24,7 @@ async function handleRemove(e) {
     });
 
     if (response.data.message) {
+      props.closeModal();
       toast.success(`${props.id.subname} removed successfully`);
       setrefresh2(!refresh2);
     } else {
@@ -47,10 +48,9 @@ else{
       <CloseIcon className='close-icon' onClick={props.closeModal} />
         <div className="">Removing "{props.id.subname}"  from the class</div>
         <h3>Enter the data that you want to edit</h3>
-        <input type="text" value={name} onChange={(e)=>{setname(e.target.value)}}/><br/>
+        <input  className='input'  type="text" value={name} onChange={(e)=>{setname(e.target.value)}}/><br/> 
        
         <button className='btn btn-outline-danger my-4 ' onClick={handleRemove}>Confirm</button>
-        <button className='btn btn-outline-dark  mx-2' onClick={props.closeModal}>Close</button>
       </div>
     </>
   );

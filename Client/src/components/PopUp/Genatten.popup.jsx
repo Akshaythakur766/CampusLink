@@ -53,17 +53,17 @@ const GeneratePopUp = ({ id, closeModal }) => {
             <CloseIcon className='close-icon' onClick={closeModal} />
                 <p>Generating Attendance</p>
                 <h4>Enter the Topic name and Time Limit</h4>
-                <input type="text" name="name" value={data.name} onChange={handleChange} placeholder="Topic Name" required /><br />
+                <input  className='input'  type="text" name="name" value={data.name} onChange={handleChange} placeholder="Topic Name" required /><br />
 
-                <input type="Number" name="time" value={data.time} onChange={handleChange} placeholder="Time(minutes)" required /><br /><br />
-                <input
-                    type="checkbox" className="form-check-input checkbox" checked={data.checked}
+                <input  className='input'  type="Number" name="time" value={data.time} onChange={handleChange} placeholder="Time(minutes)" required /><br /><br />
+                <input 
+                    type="checkbox" className="form-check-input input checkbox" checked={data.checked}
                     placeholder='Check me '
                     onChange={(e) => { setData({ ...data, checked: e.target.checked }) }}
                 />
                 <label className="form-check-label " htmlFor="exampleCheck1">Check me out</label><br />
 
-                <button className="btn bg-success text-white fw-bold m-2" onClick={GenerateAttendence}>Generate Attendance</button>
+                <button className="btn bg-dark text-white fw-bold m-2" onClick={GenerateAttendence}>Generate Attendance</button>
                 {/* <button className='btn btn-outline-dark fw-bold  mx-2' onClick={closeModal}>Close</button> */}
             </div>
         </>
