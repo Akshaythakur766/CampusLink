@@ -38,8 +38,8 @@ const DeletePopUp=(props)=>{
         <CloseIcon className='close-icon' onClick={props.closeModal} />
             <p>Deleting {props.subname}</p>
             <h3>Do you really want to delete the class If yes then type the classname and press confirm</h3>
-            <input type='text' value={data} onChange={(e)=>{setdata(e.target.value)}}/><br/>
-            <button className='btn bg-primary text-white my-4 ' onClick={handleDelete}>confirm</button>
+            <input className='input' type='text' value={data} onChange={(e)=>{setdata(e.target.value)}}/><br/>
+            <button className='btn bg-dark text-white my-4 ' onClick={handleDelete}>Confirm</button>
             <button className='btn bg-dark text-white mx-2' onClick={props.closeModal}>Close</button>
 
         </div>

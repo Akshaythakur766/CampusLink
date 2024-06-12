@@ -1,105 +1,61 @@
-import first from "../assets/first.jpg";
-import secnd from "../assets/secnd.jpg";
-import third from "../assets/third.jpg";
-import { Link } from "react-router-dom";
-import feature1 from "../assets/feature1.jpg";
-import feature2 from "../assets/feature2.jpg";
-import feature3 from "../assets/feature3.jpg";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SchoolIcon from '@mui/icons-material/School';
+import SecurityIcon from '@mui/icons-material/Security';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import './Feature.css';
+
+const FeatureCard = ({ name, Icon, data }) => {
+  return (
+    <div className="Feature-card">
+      <Icon className="feature-icon" />
+      <p className='Feature-name'>{name}</p>
+      {data && <p className="feature-data">{data}</p>}
+    </div>
+  );
+};
+
 const Feature = () => {
   return (
-    <div>
-     <>
-     <p className="font-font1 text-sm  mb-5 text-light px-2 text-center">
-          Unlocking Campus Potential: CampusLink's Core Offerings
-        </p>
-
-        {/* main cards  */}
-        <div className="flex  max-md:flex-wrap gap-5 max-md:m-20 max-md:h-auto  m-1 ">
-          <div className="md:max-w-sm bg-white border  border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-md:w-full">
-            <Link
-              to="#"
-              className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
-            >
-              <img className="  rounded-lg " src={feature1} alt="feature-1" />
-            </Link>
-            <div className="p-5 ml-1">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Online Live Attendance
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Effortlessly monitor student attendance in real-time. Faculty
-                can easily track attendance, while students mark their presence
-                with a click.
-              </p>
-            </div>
-          </div>
-
-          {/* 2 */}
-          <div className="md:max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-md:w-full">
-            <Link
-              to="#"
-              className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
-            >
-              <img className="rounded-lg" src={feature2} alt="feature-2" />
-            </Link>
-            <div className="p-5 ml-1">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Student/Faculty Portal
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Access all tools from any device. Students can view class
-                schedules and attendance records, while faculty manage class
-                rosters and track student engagement.
-              </p>
-            </div>
-          </div>
-
-          {/* 3 */}
-          <div className="md:max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  max-md:w-full">
-            <Link
-              to="#"
-              className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
-            >
-              <img className="rounded-lg" src={feature3} alt="feature-3" />
-            </Link>
-            <div className="p-5 ml-1">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Mobile Compatibility
-              </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                Stay connected on the go. Access our platform seamlessly from
-                your smartphone or tablet, ensuring learning never stops.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* upper section cards */}
-        <div className="sm:flex md:-top-[10%] max-md:-top-[10%] sm:right-20 sm:absolute sm:gap-2 hidden ">
-          <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
-            <img
-              src={secnd}
-              alt="1"
-              className="opacity-80 md:size-32 max-md:size-20"
-            />
-          </div>
-          <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
-            <img
-              src={first}
-              alt="1"
-              className="opacity-80 md:size-32  max-md:size-20 rounded-xl"
-            />
-          </div>
-          <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
-            <img
-              src={third}
-              alt="1"
-              className="opacity-80 md:size-32 max-md:size-20"
-            />
-          </div>
-        </div></>
+    <div className="min-vh-100 bg-light w-100 text-dark mt-5">
+      <div className="Feature-card-1">
+        ONLINE ATTENDANCE TRACKING, LIBRARY MANAGEMENT <br />FEATURES
+      </div>
+      <div className="d-flex flex-wrap justify-content-center gap-3 py-2">
+        <FeatureCard 
+          Icon={CalendarMonthIcon}
+          name="Online Live Attendance"
+          data="Effortlessly monitor student attendance in real-time. Faculty can easily track attendance, while students mark their presence with a click."
+        />
+        <FeatureCard 
+          Icon={LibraryBooksIcon}
+          name="Library Books"
+          data="Easily see the books available in the library based on the courses. Also provides a list of books based on the subjects in which students and teachers are enrolled."
+        />
+        <FeatureCard 
+          Icon={SchoolIcon}
+          name="Student/Faculty Portal"
+          data="Access all tools from any device. Students can view class schedules and attendance records, while faculty manage class rosters and track student engagement."
+        />
+        <FeatureCard 
+          Icon={SecurityIcon}
+          name="Enhanced Security"
+          data="Teachers generate an OTP, share it with students present in class, enabling them to mark attendance using the OTP."
+        />
+        <FeatureCard 
+          Icon={AccessTimeFilledIcon}
+          name="Time Limit"
+          data="When a teacher generates attendance, they can set a time limit within which students must mark their attendance."
+        />
+        <FeatureCard 
+          Icon={MobileFriendlyIcon}
+          name="Mobile Compatibility"
+          data="Stay connected on the go. Access our platform seamlessly from your smartphone or tablet, ensuring learning never stops."
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Feature
+export default Feature;

@@ -54,10 +54,10 @@ const EditPopUp=(props)=>{
         <CloseIcon className='close-icon' onClick={props.closeModal} />
             <p>Editing {props.subname}</p>
             <h3>Enter the new Subject Name to edit</h3>
-            <input type="text" name="name" value={data.name} onChange={handleChange} placeholder='New Subject Name'/><br/><br/>
+            <input  className='input'  type="text" name="name" value={data.name} onChange={handleChange} placeholder='New Subject Name'/><br/><br/>
 
             <h5>Enter the Old Subject Name to Confirm</h5>
-            <input type="text" name="oldname"  placeholder='Old Subject Name'value={data.oldname} onChange={handleChange}
+            <input className='input' type="text" name="oldname"  placeholder='Old Subject Name'value={data.oldname} onChange={handleChange}
              /><br/><br/>
             <button className='btn bg-primary text-white fw-bold ' onClick={handleedit}>Confirm</button>
             <button className='btn bg-dark text-white mx-2' onClick={props.closeModal}>Close</button>
