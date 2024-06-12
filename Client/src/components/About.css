@@ -1,0 +1,53 @@
+.About-Heading {
+    font-size: 35px;
+    text-align: center;
+    font-weight: 400;
+    padding: 0vh 10vw 4vh 10vw;
+}
+
+.About-Heading-2 {
+    font-size: 35px;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 10vw;
+}
+
+.About-Heading-3 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 200;
+    padding: 0 12vw;
+    margin-bottom: 20px;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.logo-wrapper {
+    margin-top: -5vh;
+}
+
+.About-Icon {
+    font-size: 90px !important;
+    color: gray !important;
+}
+
+.About-Content {
+    padding: 0 12vw;
+    font-size: 15px;
+    font-weight: 200;
+    margin:30px 0;
+    line-height: 1;
+
+}
