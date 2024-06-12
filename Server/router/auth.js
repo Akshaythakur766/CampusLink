@@ -10,6 +10,7 @@ const { handleclassListToStudent, handleViewAttendance ,handleClasslistOfStudent
 const {  handleGenerateAttendance, handleMarkAttendence } = require("../Controller/Attendence.controller");
 const { handleTeacherViewAttendence,handleGetTeacherAttendenceRecord,handleTeacherOverview} = require("../Controller/Teacher.controller");
 const {handleshowbooks,handleRecommendbooks} = require("../Controller/Library.Controller");
+const { handleCodeList, handleAddCode } = require("../Controller/code.controller");
 router.use(
     cors({
         credentials: true,
@@ -48,5 +49,8 @@ router.get('/percentteach',authroization(['teacher']),handleTeacherOverview)
 
 router.get('/books', authroization(['student', 'teacher']),handleshowbooks)
 router.get('/recommendbooks', authroization(['student', 'teacher']),handleRecommendbooks)
+
+router.get('/codeList', authroization([ 'teacher']),handleCodeList)
+router.post('/addcode', authroization([ 'teacher']),handleAddCode)
 
 module.exports = router       
