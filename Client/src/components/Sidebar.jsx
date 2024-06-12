@@ -57,7 +57,8 @@ const Sidebar = () => {
     { text: "ClassList", links: "classlist", roles: ['teacher'], Icon: UilClipboardNotes },
     { text: "Take Attendance", links: "takeAttendance", roles: ['teacher'], Icon: UilCheckCircle },
     { text: "Attendance", links: "stClassList", roles: ['student'], Icon: UilPackage },
-    { text: "Books", links: "library", roles: ['teacher', 'student'], Icon: UilFileCheckAlt }
+    { text: "Books", links: "library", roles: ['teacher', 'student'], Icon: UilFileCheckAlt },
+    { text: "CODE", links: "permission", roles: ['teacher'], Icon: UilFileCheckAlt }
   ];
 
   const activeLink = "flex items-center gap-2 pl-4 pt-2.5 pb-2.5 border-l-4 border-slate-700 bg-slate-100 text-md m-0";

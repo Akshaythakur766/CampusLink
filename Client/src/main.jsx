@@ -25,6 +25,7 @@ import OverviewTeacher from "./components/OverviewTeacher";
 import TakeAttendance from "./components/TeacherView/TakeAttendance";
 import ViewTechAttendance from "./components/TeacherView/ViewTeahAttendance";
 import Library from "./components/Library";
+import Permission from "./components/StaffView/Permission";
 
 axios.defaults.baseURL = "http://localhost:8000/api"
 axios.defaults.withCredentials = true
@@ -131,6 +132,10 @@ const router = createBrowserRouter([
           {
             path: "library",
             element: <Library />,
+          },
+          {
+            path: "permission",
+            element: <Permission/>,
           },
 
         ],

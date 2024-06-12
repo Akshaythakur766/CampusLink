@@ -59,7 +59,7 @@ const EditPopUp=(props)=>{
             <h5>Enter the Old Subject Name to Confirm</h5>
             <input className='input' type="text" name="oldname"  placeholder='Old Subject Name'value={data.oldname} onChange={handleChange}
              /><br/><br/>
-            <button className='btn bg-primary text-white fw-bold ' onClick={handleedit}>Confirm</button>
+            <button className='btn bg-dark text-white fw-bold ' onClick={handleedit}>Confirm</button>
             <button className='btn bg-dark text-white mx-2' onClick={props.closeModal}>Close</button>
 
         </div>
