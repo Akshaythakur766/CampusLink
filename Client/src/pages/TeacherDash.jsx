@@ -1,10 +1,7 @@
 import Sidebar from "../components/Sidebar";
 import { DashContext, DashProvider } from "../context/DashContext";
 import { Outlet, } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useState,useEffect } from "react";
-import FooterDash from "../components/FooterDash";
+import { useEffect } from "react";
 
 const TeacherDash = () => {
   return (
@@ -14,12 +11,10 @@ const TeacherDash = () => {
   );
 };
 
-
-
 const DashContent = () => {
   const { activeMenu, setActiveMenu, screenSize, setScreenSize } =
     DashContext(); // Use useContext hook to access context
-  console.log(activeMenu);
+ 
 
 
   useEffect(() => {    

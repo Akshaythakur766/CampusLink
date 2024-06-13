@@ -16,6 +16,7 @@ const Schema= new mongoose.Schema({
     edition:{
         type:String
     },
+  
 
 })
 

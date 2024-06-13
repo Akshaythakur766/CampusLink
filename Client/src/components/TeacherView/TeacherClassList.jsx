@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { UilEdit, UilTrashAlt } from "@iconscout/react-unicons";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import EditPopUp from "../PopUp/EditCLassname.popup";
 import { UserContext } from "../../context/Refresh";
 import DeletePopUp from "../PopUp/DeleteClass.popup";
@@ -50,9 +51,9 @@ const ClassList = () => {
       <td>{info.semester}</td>
       <td>{info.course}</td>
       <td>
-        <button className="btn btn-outline-primary fw-bold mx-2" style={{ width: '50px' }} onClick={() => openEditPopup(info.subj, info._id)}><UilEdit /></button>
+        <button className="btn btn-outline-primary fw-bold mx-2" style={{ width: '50px' }} onClick={() => openEditPopup(info.subj, info._id)}><EditNoteIcon /></button>
         {editPopup && <EditPopUp closeModal={closePopups} subname={editPopup.subname} id={editPopup.id} />}
-        <button className="btn btn-outline-danger fw-bold" style={{ width: '50px' }} onClick={() => openDeletePopup(info.subj, info._id)}><UilTrashAlt /></button>
+        <button className="btn btn-outline-danger fw-bold" style={{ width: '50px' }} onClick={() => openDeletePopup(info.subj, info._id)}><DeleteIcon /></button>
         {deletePopup && <DeletePopUp closeModal={closePopups} subname={deletePopup.subname} id={deletePopup.id} />}
       </td>
     </tr>

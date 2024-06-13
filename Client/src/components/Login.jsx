@@ -40,6 +40,12 @@ const Login = () => {
         if(response.data.role==='teacher'){
           navigate('/dashboard/overviewTeacher');
         }
+        if(response.data.role==='staff'){
+          navigate('/dashboard/overviewSt');
+        }
+        if(response.data.role==='librarian'){
+          navigate('/dashboard/overviewLib');
+        }
        
 
       }

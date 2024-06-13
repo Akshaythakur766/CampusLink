@@ -25,6 +25,11 @@ import OverviewTeacher from "./components/OverviewTeacher";
 import TakeAttendance from "./components/TeacherView/TakeAttendance";
 import ViewTechAttendance from "./components/TeacherView/ViewTeahAttendance";
 import Library from "./components/Library";
+import Permission from "./components/StaffView/Permission";
+import OverviewStaff from "./components/OverviewStaff";
+import OverviewLibrarian from "./components/OverviewLibrarian";
+import AvailableBook from "./components/AvailableBook";
+import AskedBook from "./components/AskedBook";
 
 axios.defaults.baseURL = "http://localhost:8000/api"
 axios.defaults.withCredentials = true
@@ -97,6 +102,14 @@ const router = createBrowserRouter([
             element: <OverviewTeacher />,
           },
           {
+            path: "overviewSt",
+            element: <OverviewStaff/>,
+          },
+          {
+            path: "overviewLib",
+            element: <OverviewLibrarian />,
+          },
+          {
             path: "classlist/",
             element: <ClassList />,
           },
@@ -131,6 +144,18 @@ const router = createBrowserRouter([
           {
             path: "library",
             element: <Library />,
+          },
+          {
+            path: "reqbooks",
+            element: <AvailableBook />,
+          },
+          {
+            path: "askedbooks",
+            element: <AskedBook />,
+          },
+          {
+            path: "permission",
+            element: <Permission/>,
           },
 
         ],

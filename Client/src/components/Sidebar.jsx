@@ -5,13 +5,12 @@ import axios from "axios";
 import logo from '../../public/logo.png';
 import './sidebar.css';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {
-  UilCreateDashboard,
-  UilClipboardNotes,
-  UilPackage,
-  UilFileCheckAlt,
-  UilCheckCircle
-} from '@iconscout/react-unicons';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import BookIcon from '@mui/icons-material/Book';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import SchoolIcon from '@mui/icons-material/School';
+
 
 const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize } = DashContext();
@@ -52,12 +51,16 @@ const Sidebar = () => {
   };
 
   const teacherDashboardLinks = [
-    { text: "Dashboard", links: "overview", roles: ['student'], Icon: UilCreateDashboard },
-    { text: "Dashboard", links: "overviewTeacher", roles: ['teacher'], Icon: UilCreateDashboard },
-    { text: "ClassList", links: "classlist", roles: ['teacher'], Icon: UilClipboardNotes },
-    { text: "Take Attendance", links: "takeAttendance", roles: ['teacher'], Icon: UilCheckCircle },
-    { text: "Attendance", links: "stClassList", roles: ['student'], Icon: UilPackage },
-    { text: "Books", links: "library", roles: ['teacher', 'student'], Icon: UilFileCheckAlt }
+    { text: "Dashboard", links: "overview", roles: ['student'], Icon: DashboardCustomizeIcon },
+    { text: "Dashboard", links: "overviewTeacher", roles: ['teacher'], Icon: DashboardCustomizeIcon },
+    { text: "Dashboard", links: "overviewSt", roles: ['staff'], Icon: DashboardCustomizeIcon },
+    { text: "Dashboard", links: "overviewLib", roles: ['librarian'], Icon: DashboardCustomizeIcon },
+    { text: "ClassList", links: "classlist", roles: ['teacher'], Icon: SchoolIcon },
+    { text: "Take Attendance", links: "takeAttendance", roles: ['teacher'], Icon: CheckBoxIcon },
+    { text: "Attendance", links: "stClassList", roles: ['student'], Icon: SchoolIcon },
+    { text: "CODE", links: "permission", roles: ['staff'], Icon: AssignmentTurnedInIcon  },
+    { text: "Books", links: "reqbooks", roles: ['librarian'], Icon: BookIcon },
+    { text: "Books", links: "library", roles: ['teacher', 'student','staff',], Icon: BookIcon },
   ];
 
   const activeLink = "flex items-center gap-2 pl-4 pt-2.5 pb-2.5 border-l-4 border-slate-700 bg-slate-100 text-md m-0";

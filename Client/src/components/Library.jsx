@@ -3,6 +3,8 @@ import HEader from './HEader';
 import StarIcon from '@mui/icons-material/Star';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import AskPopUp from './PopUp/AskBook.popup';
+import { useNavigate } from 'react-router-dom';
 
 const Library = () => {
     const [books, setBooks] = useState([]);
@@ -10,7 +12,9 @@ const Library = () => {
     const [filteredBooks, setFilteredBooks] = useState([]);
     const [filteredRecommendedCoursesBooks, setFilteredRecommendedCoursesBooks] = useState({});
     const [showRecommended, setShowRecommended] = useState(false);
-
+    const [showAskPopUp, setShowAskPopUp] = useState(false);
+    const [selectedBook, setSelectedBook] = useState(null);
+    const Navigate=useNavigate()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -65,11 +69,29 @@ const Library = () => {
         setFilteredBooks(filtered);
     };
 
+    // Handle Ask button click
+    const handleAskClick = (book) => {
+        setSelectedBook(book);
+        setShowAskPopUp(true);
+    };
+
+    const handleAskbutton=()=>{
+        Navigate('/dashboard/askedbooks')
+    }
+    // Close AskPopUp
+    const closeAskPopUp = () => {
+        setShowAskPopUp(false);
+        setSelectedBook(null);
+    };
+
     return (
         <div className='divClassName'>
             <HEader name={'Books'} />
             <div className='percent'>
-                <p className='percent-p'>Select the Course</p>
+            <p className="percent-p d-flex justify-content-between align-items-center">
+                    Select the Course
+                    <button className="btn bg-primary mx-5 text-white" onClick={handleAskbutton}>Requested Books</button>
+                </p>
                 <span className='ml-3'>
                     <button className='btn btn-outline-success w-30 m-1 fw-bold' onClick={handleRecommended}>
                         Recommended <StarIcon className='pb-1 mx-2' />
@@ -90,6 +112,7 @@ const Library = () => {
                                 <tr>
                                     <th>Title</th>
                                     <th>Author</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,6 +120,9 @@ const Library = () => {
                                     <tr key={book._id}>
                                         <td>{book.name}</td>
                                         <td>{book.author}</td>
+                                        <td>
+                                            <button className='btn bg-primary text-white' onClick={() => handleAskClick(book)}>Request</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -113,6 +139,7 @@ const Library = () => {
                                 <tr>
                                     <th>Title</th>
                                     <th>Author</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,6 +147,9 @@ const Library = () => {
                                     <tr key={index}>
                                         <td>{book.name}</td>
                                         <td>{book.author}</td>
+                                        <td>
+                                            <button className='btn bg-primary text-white' onClick={() => handleAskClick(book)}>Request</button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -134,6 +164,7 @@ const Library = () => {
                                         <tr>
                                             <th>Title</th>
                                             <th>Author</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -141,6 +172,9 @@ const Library = () => {
                                             <tr key={index}>
                                                 <td>{book.name}</td>
                                                 <td>{book.author}</td>
+                                                <td>
+                                                    <button className='btn bg-primary text-white' onClick={() => handleAskClick(book)}>Request</button>
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -149,6 +183,9 @@ const Library = () => {
                         </div>
                     ))}
                 </div>
+            )}
+            {showAskPopUp && selectedBook && (
+                <AskPopUp book={selectedBook} onClose={closeAskPopUp} />
             )}
         </div>
     );

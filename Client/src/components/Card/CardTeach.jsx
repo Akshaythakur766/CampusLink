@@ -2,8 +2,7 @@ import { motion } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
 import Chart from 'react-apexcharts';
 import './Card.css';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+
 
 const CardTeach = (props) => {
   return (

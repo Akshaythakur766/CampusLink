@@ -8,10 +8,10 @@ const About = () => {
       <div className="container">
         <div className="logo-container">
           <div className="logo-wrapper">
-            <img src={logo} alt="" width={150} />
+            <img src={logo} alt="" width={100} />
           </div>
           <div className="logo-wrapper">
-            <img src={logo2} alt="" width={300} />
+            <img src={logo2} alt="" width={200} />
           </div>
         </div>
         <p className="About-Heading">CampusLink - Free online Attendance Tracking and Library Management Software</p>

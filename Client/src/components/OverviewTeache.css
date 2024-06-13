@@ -23,3 +23,48 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  
+
+  /* library */
+  .table-container-2 {
+    /* position: relative; */
+    border-radius: 10px;
+    width: 57.5vw;
+    margin: 20px;
+    min-height: 25vh;
+    border: 1.5px solid rgba(0, 0, 0, .12);
+    background:radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%) ;
+  }
+  
+  .table-container-2 table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container-2 thead {
+    top: 0;
+    padding: 10px;
+    border-radius: 10px;  
+    border-bottom:1.5px solid rgba(0, 0, 0, .12) ;
+  }
+  
+  
+  
+  .table-container-2 th,
+  .table-container-2 td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .table-container-2 th:last-child {
+    width: 15vw;
+  }
+  
+  .table-container-2 td:last-child {
+    border-right: none;
+  }
+  
+  .table-container-2 tr:last-child td {
+    border-bottom: none;
+  }

@@ -45,9 +45,9 @@
 
 .About-Content {
     padding: 0 12vw;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 200;
     margin:30px 0;
-    line-height: 1;
+    /* line-height: 1; */
 
 }
