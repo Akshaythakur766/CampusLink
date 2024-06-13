@@ -18,6 +18,9 @@ async function handleProfile(req,res){
         const lastname=response2.lastName
         const name=firstname+lastname
         res.json({role,name});
-    }    
+    }  
+    if(role=='staff'){
+        res.json({role,name:"Staff"})
+    }  
 }
 module.exports={handleProfile};

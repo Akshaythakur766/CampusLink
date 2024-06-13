@@ -22,7 +22,7 @@ router.post('/StudentRegister', handleStudentRegister)
 router.post('/login', handleLogin)
 router.post('/logout',handleLogout)
 router.post('/TeacherRegister', handleTeacherRegister)
-router.get('/profile', authroization(['teacher', 'student']), handleProfile)
+router.get('/profile', authroization(['teacher', 'student','staff','librarian']), handleProfile)
 
 router.post('/class', authroization(['teacher']), handleCreateClass)
 router.post('/deleteClass', authroization(['teacher']), handleDeleteClass)
@@ -47,10 +47,10 @@ router.post('/attendenceRecord',authroization(['teacher']), handleGetTeacherAtte
 router.get('/percent',authroization(['student']),handleClasslistOfStudent)
 router.get('/percentteach',authroization(['teacher']),handleTeacherOverview)
 
-router.get('/books', authroization(['student', 'teacher']),handleshowbooks)
-router.get('/recommendbooks', authroization(['student', 'teacher']),handleRecommendbooks)
+router.get('/books', authroization(['student', 'teacher','staff','librarian']),handleshowbooks)
+router.get('/recommendbooks', authroization(['student', 'teacher','staff','librarian']),handleRecommendbooks)
 
-router.get('/codeList', authroization([ 'teacher']),handleCodeList)
-router.post('/addcode', authroization([ 'teacher']),handleAddCode)
+router.get('/codeList', authroization([ 'staff']),handleCodeList)
+router.post('/addcode', authroization([ 'staff']),handleAddCode)
 
 module.exports = router       

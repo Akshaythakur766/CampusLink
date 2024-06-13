@@ -33,8 +33,8 @@ const Permission = () => {
   };
 
   const generateCode = (name, role) => {
-    const namePart = name.substring(0, 4).toUpperCase();
     const rolePart = role.substring(0, 4).toUpperCase();
+    const namePart = name.substring(0, 4).toUpperCase();
     const otp = generateOtp();
     return `${rolePart}${namePart}${otp}`;
   };

@@ -21,6 +21,6 @@ const Schema = new mongoose.Schema({
     }
 });
 
-const CodeModel = mongoose.model("Staff", Schema);
+const CodeModel = new mongoose.model("Staff", Schema);
 
 module.exports = CodeModel;
