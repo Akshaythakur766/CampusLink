@@ -7,6 +7,9 @@ const Schema=new mongoose.Schema({
     author:{
         type:String
     },
+    email:{
+        type:String
+    },
     bookName:{
         type:String,
     },
@@ -22,4 +25,13 @@ const Schema=new mongoose.Schema({
     role:{
         type:String,
     },   
+    available:{
+        type:Boolean,
+    },note:{
+        type:String
+    }
 })
+
+const Available= new mongoose.model("Request",Schema)
+
+module.exports=Available

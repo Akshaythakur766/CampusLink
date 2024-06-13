@@ -1,5 +1,5 @@
 const CodeModel = require('../model/Code');
-
+const Teacher=require('../model/teacherauth')
 async function handleCodeList(req, res) {
     try {
         const response = await CodeModel.find({});
@@ -29,4 +29,9 @@ async function handleAddCode(req, res) {
     }
 }
 
-module.exports = { handleAddCode, handleCodeList };
+async function handleTeacherList(req,res){
+    const response=await Teacher.find({})
+    res.json({list:response})
+}
+
+module.exports = { handleAddCode, handleCodeList,handleTeacherList };

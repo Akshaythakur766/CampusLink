@@ -110,13 +110,13 @@ const Permission = () => {
 
           <div>
             <p className="percent-p">Code:</p>
-            {code}
+            <p className="mx-4 fw-bold">{code}</p>
           </div>
         </div>
       </div>
 
       <div className="percent">
-        <p className="percent-p px-4 border-bottom">Code</p>
+        <p className="percent-p px-4 border-bottom">Code:</p>
         <table className="mx-5">
           <thead>
             <tr>

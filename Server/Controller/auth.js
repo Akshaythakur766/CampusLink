@@ -147,6 +147,12 @@ try{
             error:"Email is already exist"
         })
     }
+    if(!existcode){
+        return res.json({
+            error:"Invalid Verification Code"
+        })
+    
+    }
 
     if(existcode){
         if(existcode.Used==true){
