@@ -82,7 +82,7 @@ const Permission = () => {
               className="w-50 border rounded p-1 border-dark mx-5"
               placeholder="rohan@gmail.com"
               name="email"
-              type="text"
+              type="email"
               value={data.email}
               onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
               required

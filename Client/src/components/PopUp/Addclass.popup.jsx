@@ -75,7 +75,7 @@ const AddClass = ({ closeModal }) => {
                 <option value="7th">7th</option>
                 <option value="8th">8th</option>
                 </select><br/><br/>
-                <button className='btn bg-dark text-white  ' onClick={CreateClass}>Confirm</button>
+                <button className='btn bg-dark text-white' onClick={CreateClass}>Confirm</button>
             </div>
         </>
     );

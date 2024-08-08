@@ -9,7 +9,7 @@ const OtpAttendance = () => {
     <div>
       <HEader name="Take Attendance" />
       <div className="percent">
-        <div className="percent-p">otp: {otp}</div>
+        <div className="percent-p">OTP: {otp}</div>
       </div>
     </div>
   );

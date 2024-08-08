@@ -20,6 +20,10 @@ const OverviewStaff = () => {
         fetchData();
     }, []);
 
+    const getRole = (code) => {
+        return code.includes('LIBR') ? 'Librarian' : 'Teacher';
+    };
+
     return (
         <div className='box'>
             <div className='divclassName'>
@@ -48,7 +52,7 @@ const OverviewStaff = () => {
                                         <tr key={index}>
                                             <td>{`${teacher.firstName} ${teacher.lastName}`}</td>
                                             <td>{teacher.email}</td>
-                                            <td>{teacher.code === 'LIBRRAM8016' ? 'Librarian' : 'Teacher'}</td>
+                                            <td>{getRole(teacher.code)}</td>
                                         </tr>
                                     ))}
                                 </tbody>
