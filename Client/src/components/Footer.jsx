@@ -22,7 +22,7 @@ function Footer() {
               <div>
                 <div className=" w-full mr-3 formkit-field">
                   <div className="flex items-center max-sm:flex-col justify-start mt-4 ">
-                    <input
+                    {/* <input
                       id="email"
                       className="formkit-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block max-sm:w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-12 w-1/3"
                       name="email_address"
@@ -33,7 +33,7 @@ function Footer() {
                     />
                     <button className="buttonCol ml-4 max-sm:mt-2 rounded-xl">
                       Subscribe
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

@@ -67,7 +67,7 @@ Librarians will register using a verification code provided by the Staff.
 #### Staff Module
 ID: staff@gmail.com
 
-Password: 123456
+Password: staff@123
 
 
 
@@ -95,3 +95,4 @@ Library Management: Streamlines the process of requesting and issuing library bo
 ## Author
 
 Your Name - Akshaythakur766
+
