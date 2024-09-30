@@ -1,9 +1,9 @@
-import { useState,useContext } from 'react'
-import axios from 'axios'
-import './Popup.css'
-import toast from 'react-hot-toast'
 import CloseIcon from '@mui/icons-material/Close';
-import { UserContext } from '../../context/Refresh'
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { UserContext } from '../../context/Refresh';
+import './Popup.css';
 
 
 const DeletePopUp=(props)=>{

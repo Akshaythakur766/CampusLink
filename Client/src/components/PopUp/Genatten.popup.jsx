@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import axios from 'axios';
-import './Popup.css';
-import toast from 'react-hot-toast';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from 'axios';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import './Popup.css';
 const GeneratePopUp = ({ id, closeModal }) => {
     const navigate = useNavigate()
     const [data, setData] = useState({

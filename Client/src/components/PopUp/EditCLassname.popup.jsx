@@ -1,10 +1,10 @@
-import { useState,useContext } from 'react'
-import axios from 'axios'
-import './Popup.css'
 import CloseIcon from '@mui/icons-material/Close';
-import toast from 'react-hot-toast'
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import './Popup.css';
 
-import { UserContext } from '../../context/Refresh'
+import { UserContext } from '../../context/Refresh';
 
 
 const EditPopUp=(props)=>{

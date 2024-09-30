@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
-import './Popup.css';
-import axios from 'axios';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from 'axios';
+import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
+import './Popup.css';
 
 const MarkPopup = ({ id, closeModal }) => {
   const [data, setData] = useState({

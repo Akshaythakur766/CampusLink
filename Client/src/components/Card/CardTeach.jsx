@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'; 
 import CloseIcon from '@mui/icons-material/Close';
+import { motion } from 'framer-motion';
 import Chart from 'react-apexcharts';
 import './Card.css';
 
