@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import { useState } from 'react';
-import './Card.css';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import './Card.css';
 
 const Card = (props) => {
   const [expanded, setExpanded] = useState(false);

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './cards.css';
+import { useEffect, useState } from 'react';
 import CardTeach from '../Card/CardTeach';
+import './cards.css';
 
 const CardsTeach = () => {
   const [data, setData] = useState([]);

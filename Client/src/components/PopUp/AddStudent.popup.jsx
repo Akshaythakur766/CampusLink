@@ -1,9 +1,9 @@
-import axios from 'axios';
-import './Student.css';
-import { useEffect, useState, useContext } from 'react';
-import toast from 'react-hot-toast';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { UserContext } from '../../context/Refresh';
+import './Student.css';
 
 const AddStudent = (props) => {
   const { closeModal, id, course, semester } = props;
