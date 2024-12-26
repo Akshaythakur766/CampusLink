@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { FaMoon } from "react-icons/fa";
-import { IoSunny } from "react-icons/io5";
+import BedtimeIcon from '@mui/icons-material/Bedtime';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { ThemeContext } from "../context/ThemeContext";
 
 const Darkmode = () => {
@@ -24,9 +24,9 @@ const Darkmode = () => {
             onClick={toggleMode}
           >
             {Theme == "light" ? (
-              <FaMoon className="text-xl" />
+              <BedtimeIcon className="text-xl" />
             ) : (
-              <IoSunny className="text-xl" />
+              <WbSunnyIcon className="text-xl" />
             )}
           </button>
         </div>

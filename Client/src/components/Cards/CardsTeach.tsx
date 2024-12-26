@@ -3,9 +3,21 @@ import { useEffect, useState } from 'react';
 import CardTeach from '../Card/CardTeach';
 import './cards.css';
 
+
+interface CardTeachType {
+  name:string,
+  otp:number,
+  semester:string,
+  course:string,
+  numberOfStudents:number,
+  studentsPresent:number,
+  dates:any[],
+
+}
+
 const CardsTeach = () => {
-  const [data, setData] = useState([]);
-  const [expandedId, setExpandedId] = useState(null); 
+  const [data, setData] = useState<CardTeachType[]>([]);
+  const [expandedId, setExpandedId] = useState<number |null>(null); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +32,8 @@ const CardsTeach = () => {
     fetchData();
   }, []);
 
-  const formatDates = (dates) => {
+
+  const formatDates = (dates:any[]) => {
     return dates.map(date => new Date(date).toLocaleString('default', {
       day: '2-digit',
       month: 'short',
@@ -50,7 +63,7 @@ const CardsTeach = () => {
             ]}
             timeCategories={formatDates(card.dates)}
             expanded={expandedId === id}
-            setExpanded={() => setExpandedId(expandedId === id ? null : id)}
+            setExpanded={() => setExpandedId( expandedId ? expandedId === id ? null : id : null)}
           />
         </div>
       ))}

@@ -3,8 +3,16 @@ import { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 import './cards.css';
 
+
+interface CardType{
+  Total:number,
+  present:number,
+  className:string,
+  teacherName:string,
+
+}
 const Cards = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<CardType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

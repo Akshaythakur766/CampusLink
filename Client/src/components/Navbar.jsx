@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import Darklogo from "../../public/Darklogo1.png";
 import logo1 from "../../public/logo12.png";
 import logo from "../../public/logo.png";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoIosClose } from "react-icons/io";
+
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { useState,   useEffect } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
@@ -104,12 +105,12 @@ async function fetchData() {
         </ul>
         <div>
           {open ? (
-            <IoIosClose
+            <CloseIcon
               onClick={ChangeIcon}
               className="absolute text-4xl z-10 right-5 top-5 sm:hidden"
             />
           ) : (
-            <RxHamburgerMenu
+            <MenuIcon
               onClick={ChangeIcon}
               className="absolute text-3xl z-10 right-5 top-5 sm:hidden"
             />
