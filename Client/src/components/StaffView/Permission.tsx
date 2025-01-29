@@ -3,28 +3,35 @@ import HEader from "../HEader";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
+interface listType {
+  name: string;
+  email: string;
+  role: string;
+  code: string;
+  Used: boolean;
+}
 const Permission = () => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<listType[]>([]);
   const [code, setCode] = useState("Not generated");
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/codeList');
+        const response = await axios.get("/codeList");
         setList(response.data.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
-        toast.error('Error fetching data');
+        console.error("Error fetching data:", error);
+        toast.error("Error fetching data");
       }
     };
     fetchData();
   }, [refresh]);
 
   const [data, setData] = useState({
-    name: '',
-    role: '',
-    email: ''
+    name: "",
+    role: "",
+    email: "",
   });
 
   const generateOtp = () => {
@@ -32,7 +39,7 @@ const Permission = () => {
     return otp.toString();
   };
 
-  const generateCode = (name, role) => {
+  const generateCode = (name: string, role: string) => {
     const rolePart = role.substring(0, 4).toUpperCase();
     const namePart = name.substring(0, 4).toUpperCase();
     const otp = generateOtp();
@@ -43,7 +50,12 @@ const Permission = () => {
     const { name, role, email } = data;
     const newCode = generateCode(name, role);
     try {
-      const response = await axios.post('/addcode', { name, email, role, code: newCode });
+      const response = await axios.post("/addcode", {
+        name,
+        email,
+        role,
+        code: newCode,
+      });
       if (response.data.success) {
         toast.success("Code Generated");
         setCode(newCode);
@@ -52,14 +64,14 @@ const Permission = () => {
         toast.error(response.data.error || "Error! Please try Again");
       }
     } catch (error) {
-      console.error('Error generating code:', error);
-      toast.error('Error generating code');
+      console.error("Error generating code:", error);
+      toast.error("Error generating code");
     }
   };
 
   return (
     <div className="divClassName">
-      <HEader name={'CODE'} />
+      <HEader name={"CODE"} />
       <div className="percent">
         <p className="percent-p px-4 border-bottom">Add Member</p>
         <div className="flex">
@@ -72,10 +84,13 @@ const Permission = () => {
               type="text"
               placeholder="Rohan Kumar"
               value={data.name}
-              onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+              onChange={(e) => {
+                setData({ ...data, [e.target.name]: e.target.value });
+              }}
               required
             />
-            <br /><br />
+            <br />
+            <br />
             <label className="mx-5 fw-bold">Email:</label>
             <br />
             <input
@@ -84,26 +99,33 @@ const Permission = () => {
               name="email"
               type="email"
               value={data.email}
-              onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+              onChange={(e) => {
+                setData({ ...data, [e.target.name]: e.target.value });
+              }}
               required
             />
-            <br /><br />
+            <br />
+            <br />
             <label className="mx-5 fw-bold">Role:</label>
             <br />
             <select
               name="role"
               className="w-50 border rounded p-1 border-dark mx-5"
               value={data.role}
-              onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+              onChange={(e) => {
+                setData({ ...data, [e.target.name]: e.target.value });
+              }}
               required
             >
               <option value="">None</option>
               <option value="Teacher">Teacher</option>
               <option value="Librarian">Librarian</option>
-           
             </select>
             <br />
-            <button className="btn w-40 mx-5 my-4 bg-dark text-white" onClick={handleCode}>
+            <button
+              className="btn w-40 mx-5 my-4 bg-dark text-white"
+              onClick={handleCode}
+            >
               Generate Code
             </button>
           </div>
@@ -128,20 +150,21 @@ const Permission = () => {
             </tr>
           </thead>
           <tbody>
-            {Array.isArray(list) && list.map((item, index) => (
-              <tr key={index}>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.role}</td>
-                <td>{item.code}</td>
-                <td>{item.Used ? 'Registered' : 'Not Registered'}</td>
-              </tr>
-            ))}
+            {Array.isArray(list) &&
+              list.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.role}</td>
+                  <td>{item.code}</td>
+                  <td>{item.Used ? "Registered" : "Not Registered"}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
     </div>
   );
-}
+};
 
 export default Permission;

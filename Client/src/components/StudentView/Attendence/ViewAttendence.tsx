@@ -5,8 +5,14 @@ import CircleIcon from '@mui/icons-material/Circle';
 import moment from 'moment-timezone';
 import './viewatt.css';
 
+interface AttendanceDataType {
+  Date:string
+  generate:boolean
+  present:boolean
+  topicname:string
+}
 const ViewAttendance = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<AttendanceDataType[]>([]);
   const location = useLocation();
   const { state } = location;
   const classid = state?.classid; 
@@ -23,26 +29,27 @@ const ViewAttendance = () => {
     fetchData();
   }, [classid]);
 
-  const getStatusColor = (present) => {
+  const getStatusColor = (present:boolean) => {
     return present ? "green" : "red";
   };
 
+  console.log("data" , data)
   // Organize data by month
-  const organizedData = data.reduce((acc, record) => {
-    const monthYear = moment.tz(record.Date, 'UTC').format('MMMM YYYY');
+  const organizedData = data.reduce((acc:any, record) => {
+    const monthYear = moment.tz(record?.Date, 'UTC').format('MMMM YYYY');
     if (!acc[monthYear]) {
       acc[monthYear] = [];
     }
     acc[monthYear].push(record);
     return acc;
-  }, {});
+  }, []);
 
   return (
     <div className="divClassName">
       <div className="paragraph bg-white">
         <h2>Attendance</h2>
       </div>
-      {Object.entries(organizedData).map(([monthYear, records]) => (
+      {Object.entries(organizedData).map(([monthYear, records]:any) => (
         <div className="view-table" key={monthYear}>
           <p>{monthYear}</p>
           <table className="table">
@@ -55,7 +62,7 @@ const ViewAttendance = () => {
               </tr>
             </thead>
             <tbody>
-              {records.map((record, index) => (
+              {records?.map((record:AttendanceDataType, index:number) => (
                 <tr key={index}>
                   <td>{moment.tz(record.Date, 'UTC').format('MMMM D')}</td>
                   <td>{moment.tz(record.Date, 'UTC').format('h:mm:ss a')}</td>

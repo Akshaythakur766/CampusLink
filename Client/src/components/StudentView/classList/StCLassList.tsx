@@ -8,7 +8,7 @@ import HEader from '../../HEader';
 const StCLassList = () => {
     const [classList, setClassList] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    const [selectedClassId, setSelectedClassId] = useState(null); // State to store the ID of the selected class
+    const [selectedClassId, setSelectedClassId] = useState<number|null>(null); // State to store the ID of the selected class
     const navigate = useNavigate();
 
     const closeModal = () => {
@@ -27,15 +27,15 @@ const StCLassList = () => {
         fetchData();
     }, []); // empty dependency array to run effect only once
 
-    const handleViewAttendance = (classid) => {
+    const handleViewAttendance = (classid:number) => {
         navigate('/dashboard/viewAttendence', { state: { classid } });
     }
 
-    const handleMarkAttendance = (classid) => {
+    const handleMarkAttendance = (classid:number) => {
         setSelectedClassId(classid); // Set the ID of the selected class
         setShowModal(true);
     }
-
+    console.log("classList " ,classList )
     return (
         <div className="divClassName">
          <HEader name={"Attendance"}/>

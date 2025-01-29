@@ -4,7 +4,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./Card.css";
 
-const Card = (props) => {
+const Card = (props:any) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -20,7 +20,14 @@ const Card = (props) => {
 function CompactCard({
   param,
 }: {
-  param: { barValue: number; present: string; png: string , className:string  ,total:number, teacher:string };
+  param: {
+    barValue: number;
+    present: string;
+    png: string;
+    className: string;
+    total: number;
+    teacher: string;
+  };
 }) {
   const Png = param.png;
 
