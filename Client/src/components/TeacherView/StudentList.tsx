@@ -6,7 +6,14 @@ import GeneratePopUp from '../PopUp/Genatten.popup';
 import AddStudent from '../PopUp/AddStudent.popup';
 import RemoveSt from '../PopUp/RemoveSt.popup';
 import HEader from '../HEader';
-
+ interface studentInterface {
+    _id:number
+    firstName:string,
+    LastName:string,
+    rollNo:number,
+    semester:string,
+    course:string
+ }
 const StudentList = () => {
     const location = useLocation();
     const { state } = location;
@@ -15,8 +22,8 @@ const StudentList = () => {
     //this id of class id ,name
     const { id, name, course, semester } = state;
 
-    const [students, setStudents] = useState([]);
-    const [studentToRemove, setStudentToRemove] = useState(null); // Track which student to remove
+    const [students, setStudents] = useState<studentInterface[]>([]);
+    const [studentToRemove, setStudentToRemove] = useState<{id1:number , subname:string, classid:number}|null>(null); // Track which student to remove
     const [showAddStudentModal, setShowAddStudentModal] = useState(false);
     const [showGenerateAttendanceModal, setShowGenerateAttendanceModal] = useState(false);
 
@@ -27,7 +34,7 @@ const StudentList = () => {
     const closeGenerateAttendanceModal = () => {
         setShowGenerateAttendanceModal(false);
     };
-    const openRemoveStudentModal = (id1, subname) => {
+    const openRemoveStudentModal = (id1:number, subname:string) => {
         setStudentToRemove({ id1, subname, classid: id });
     };
 
@@ -46,17 +53,17 @@ const StudentList = () => {
         };
         fetchData();
     }, [id, name, course, semester, refresh1, refresh2]);
-
-    const displaydata = students.map((student, index) => (
+    // console.log({studentToRemove ,student: students[0]?._id} , "Comparison" , studentToRemove === students[0]?._id)
+    const displaydata = students.map((student, index:number) => (
         <tr key={index}>
             <td>{index + 1}</td>
-            <td>{student.firstName} {student.LastName}</td>
-            <td>{student.rollNo}</td>
-            <td>{student.course}</td>
-            <td>{student.semester}</td>
+            <td>{student?.firstName} {student?.LastName}</td>
+            <td>{student?.rollNo}</td>
+            <td>{student?.course}</td>
+            <td>{student?.semester}</td>
             <td>
-                <button className='btn btn-outline-danger fw-bold' onClick={() => openRemoveStudentModal(student._id, student.firstName)}>Remove</button>
-                {studentToRemove === student._id && <RemoveSt closeModal={closeRemoveStudentModal} />}
+                <button className='btn btn-outline-danger fw-bold' onClick={() => openRemoveStudentModal(student?._id, student.firstName)}>Remove</button>
+                {/* {studentToRemove === student?._id && <RemoveSt closeModal={closeRemoveStudentModal} />} */}
             </td>
         </tr>
     ));

@@ -4,11 +4,17 @@ import { UserContext } from "../../context/Refresh";
 import { useNavigate } from "react-router-dom";
 import HEader from "../HEader";
 
+export interface DataTypes{
+  _id:number
+  subj:string
+  semester:string
+  course:string
+}
 
 const TakeAttendance = () => {
   const provider = useContext(UserContext)
   const { refresh } = provider
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataTypes[]>([]);
   const Navigate = useNavigate();
 
   useEffect(() => {
@@ -24,11 +30,11 @@ const TakeAttendance = () => {
     fetchData();
   }, [refresh]);
 
-  const handleTakeAttendance = (id, name,course,semester) => {
+  const handleTakeAttendance = (id:number, name:string,course:string,semester:string) => {
     Navigate("/dashboard/studentList", { state: { id,name,course,semester } });
   };
 
-  const handleViewAttendance = (id, name,course,semester) => {
+  const handleViewAttendance = (id:number, name:string,course:string,semester:string) => {
     Navigate("/dashboard/ViewAttendenceRecord", { state: { id,name,course,semester } });
   };
 

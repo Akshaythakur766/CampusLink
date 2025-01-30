@@ -4,9 +4,22 @@ import { useLocation } from "react-router-dom";
 import FiberManualRecordTwoToneIcon from '@mui/icons-material/FiberManualRecordTwoTone';
 import HEader from "../HEader";
 
+interface AttendenceRecordType{
+    name:string,
+    rollno:string
+    studentId:string
+    attendance:boolean[]
+}
+
+interface GroupMothType{
+    dayMonth:string
+    index:number
+    day:string
+}
+
 const ViewAttdRecord = () => {
-    const [attendanceRecords, setAttendanceRecords] = useState([]);
-    const [groupedByMonth, setGroupedByMonth] = useState({});
+    const [attendanceRecords, setAttendanceRecords] = useState<AttendenceRecordType[]>([]);
+    const [groupedByMonth, setGroupedByMonth] = useState<any>({});
 
     const location = useLocation();
     const { state } = location;
@@ -23,7 +36,7 @@ const ViewAttdRecord = () => {
                 const topics = response.data.firstStudentTopicNames;
 
                 // Group dates by month and year
-                const groupedData = dates.reduce((acc, date, index) => {
+                const groupedData = dates.reduce((acc:any, date:string, index:number) => {
                     const dateTime = new Date(date);
                     const dayMonth = dateTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                     const monthYear = dateTime.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
@@ -47,8 +60,8 @@ const ViewAttdRecord = () => {
         };
         fetchData();
     }, [id]);
-
-    const calculateTotal = (attendance) => {
+    console.log({attendanceRecords , groupedByMonth})
+    const calculateTotal = (attendance:boolean[]) => {
         return attendance.reduce((acc, present) => acc + (present ? 1 : 0), 0);
     };
 
@@ -62,12 +75,12 @@ const ViewAttdRecord = () => {
                 {Object.keys(groupedByMonth).map((monthYear) => (
                     <div className="view-table table-container" key={monthYear}>
                         <p>{monthYear}</p>
-                        <table className="table" border="1" style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}>
+                        <table className="table" border={1} style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}>
                             <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Roll No</th>
-                                    {groupedByMonth[monthYear].map(({ dayMonth }) => (
+                                    {groupedByMonth[monthYear].map(({ dayMonth }:{dayMonth:string}) => (
                                         <th key={dayMonth}>{dayMonth}</th>
                                     ))}
                                     <th>Present</th>
@@ -77,7 +90,7 @@ const ViewAttdRecord = () => {
                                 <tr>
                                     <th></th>
                                     <th></th>
-                                    {groupedByMonth[monthYear].map(({ topic }) => (
+                                    {groupedByMonth[monthYear].map(({ topic }:{topic:string}) => (
                                         <th key={topic}>{topic}</th>
                                     ))}
                                     <th></th>
@@ -87,7 +100,7 @@ const ViewAttdRecord = () => {
                             </thead>
                             <tbody>
                                 {attendanceRecords.map((record) => {
-                                    const monthlyAttendance = groupedByMonth[monthYear].map(({ index }) => record.attendance[index]);
+                                    const monthlyAttendance = groupedByMonth[monthYear].map(({ index}:{index:number}) => record.attendance[index]);
                                     const totalPresent = calculateTotal(monthlyAttendance);
                                     const totalDays = groupedByMonth[monthYear].length;
                                 
@@ -97,7 +110,7 @@ const ViewAttdRecord = () => {
                                         <tr key={record.studentId}>
                                             <td>{record.name}</td>
                                             <td>{record.rollno}</td>
-                                            {monthlyAttendance.map((present, index) => (
+                                            {monthlyAttendance.map((present:boolean, index:number) => (
                                                 <td key={index}>
                                                     {present ? (
                                                         <FiberManualRecordTwoToneIcon style={{ color: 'green' }} />

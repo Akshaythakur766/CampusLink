@@ -8,20 +8,26 @@ import DeletePopUp from "../PopUp/DeleteClass.popup";
 import AddClass from "../PopUp/Addclass.popup"; 
 import './Teacherclass.css'
 import HEader from "../HEader";
+import { DataTypes } from "./TakeAttendance";
+
+interface PopupType{
+  subname:string
+  id:number
+}
 
 const ClassList = () => {
   const provider = useContext(UserContext);
   const { refresh } = provider;
-  const [data, setData] = useState([]);
-  const [editPopup, setEditPopup] = useState(null);
-  const [deletePopup, setDeletePopup] = useState(null);
+  const [data, setData] = useState<DataTypes[]>([]);
+  const [editPopup, setEditPopup] = useState<PopupType|null>(null);
+  const [deletePopup, setDeletePopup] = useState<PopupType|null>(null);
   const [addClassPopup, setAddClassPopup] = useState(false); // Renamed state variable
 
-  const openEditPopup = (subname, id) => {
+  const openEditPopup = (subname:string, id:number) => {
     setEditPopup({ subname, id });
   };
 
-  const openDeletePopup = (subname, id) => {
+  const openDeletePopup = (subname:string, id:number) => {
     setDeletePopup({ subname, id });
   };
 

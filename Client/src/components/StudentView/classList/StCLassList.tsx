@@ -5,8 +5,18 @@ import MarkPopup from '../../PopUp/Mark.popup';
 import { useNavigate } from 'react-router-dom';
 import HEader from '../../HEader';
 
+interface classListType{
+    show:boolean
+    class:{
+        _id:number
+        semester:string
+        subj:string
+        course:string
+    }
+}
+
 const StCLassList = () => {
-    const [classList, setClassList] = useState([]);
+    const [classList, setClassList] = useState<classListType[]>([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedClassId, setSelectedClassId] = useState<number|null>(null); // State to store the ID of the selected class
     const navigate = useNavigate();
