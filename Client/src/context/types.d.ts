@@ -10,3 +10,9 @@ interface RefreshContextType {
     refresh3:boolean;
     setrefresh3:(e:boolean)=>void
 }
+
+
+interface ThemeContextType {
+    Theme:string
+    setTheme:(e:string)=>void
+}

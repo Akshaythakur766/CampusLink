@@ -8,7 +8,7 @@ const DashNav = () => {
   return (
     <>
       <div className="flex flex-nowrap justify-between items-center h-14 bg-black">
-        <p>shdkj</p>
+        <p>Learning</p>
       </div>
     </>
   );

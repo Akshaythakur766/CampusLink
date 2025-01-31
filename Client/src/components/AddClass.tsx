@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
 const Class = () => {
@@ -10,7 +10,7 @@ const Class = () => {
 
     const [student, setStudent] = useState([])
 
-    const handleChange = (e) => {
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         setData({
             ...data,
             [e.target.name]: e.target.value

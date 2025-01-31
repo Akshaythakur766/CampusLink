@@ -5,7 +5,7 @@ import { ThemeContext } from "../context/ThemeContext";
 
 const Darkmode = () => {
   const [Mode, setMode] = useState(false);
-  const { Theme, setTheme } = useContext(ThemeContext);
+  const { Theme , setTheme } = useContext(ThemeContext);
 
   const toggleMode = () => {
     setMode(!Mode);

@@ -1,13 +1,16 @@
 import  { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
+//TODO: just to know about email an change it 
 function Contact() {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e:any) => {
     e.preventDefault();
 
-    emailjs
+    if(form?.current){
+
+      emailjs
       .sendForm("service_nf70jmd", "template_mgi7wl8", form.current, {
         publicKey: "F_f-8beC9D-o9boU1",
       })
@@ -19,8 +22,9 @@ function Contact() {
           console.log("FAILED...", error.text);
         }
       );
-    e.target.reset();
-  };
+      e.target.reset();
+    };
+  }
 
   return (
     <div className="mt-14 md:p-10 md:mx-20  lg:mx-80 p-5">
@@ -98,7 +102,7 @@ function Contact() {
           </label>
           <textarea
             id="message"
-            rows="4"
+            rows={4}
             name="message"
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Your message..."

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../public/logo.png";
+
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -44,7 +44,7 @@ function Footer() {
                 to="/"
                 className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
               >
-                <img src={logo} className="h-8" alt="Flowbite Logo" />
+                <img src={'/logo.png'} className="h-8" alt="Flowbite Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                   CampusLink
                 </span>

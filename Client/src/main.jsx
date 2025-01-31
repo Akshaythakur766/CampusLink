@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "./index.css";
-import axios from 'axios'
+import axios from "axios";
 import Home from "./pages/Home";
-import ReactDOM from 'react-dom/client'
+import ReactDOM from "react-dom/client";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
 import { ThemeContext } from "./context/ThemeContext";
@@ -31,27 +31,23 @@ import OverviewLibrarian from "./components/OverviewLibrarian";
 import AvailableBook from "./components/AvailableBook";
 import AskedBook from "./components/AskedBook";
 
-axios.defaults.baseURL = "http://localhost:8000/api"
-axios.defaults.withCredentials = true
+axios.defaults.baseURL = "http://localhost:8000/api";
+axios.defaults.withCredentials = true;
 
 const MainLayout = () => {
   const [Theme, setTheme] = useState("light");
 
   return (
-
-
     <>
-
-      <ThemeContext.Provider value={{ Theme, setTheme }}>
+      <ThemeProvider>
         <div className={` ${Theme}`}>
           <Outlet />
-          <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
+          <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
         </div>
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </>
   );
 };
-
 
 const router = createBrowserRouter([
   {
@@ -72,7 +68,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/feature",
-            element: <Feature/> ,
+            element: <Feature />,
           },
 
           {
@@ -103,7 +99,7 @@ const router = createBrowserRouter([
           },
           {
             path: "overviewSt",
-            element: <OverviewStaff/>,
+            element: <OverviewStaff />,
           },
           {
             path: "overviewLib",
@@ -155,9 +151,8 @@ const router = createBrowserRouter([
           },
           {
             path: "permission",
-            element: <Permission/>,
+            element: <Permission />,
           },
-
         ],
       },
     ],
@@ -166,8 +161,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <UserContextProvider>
-        <RouterProvider router={router} />
-      </UserContextProvider>
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </React.StrictMode>
 );

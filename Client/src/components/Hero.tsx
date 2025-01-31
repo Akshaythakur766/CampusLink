@@ -1,6 +1,6 @@
-import secnd from "../assets/secnd.jpg";
 
-const Hero = ({ scrollToRegistration }) => {
+
+const Hero = ({ scrollToRegistration }:{scrollToRegistration:()=>void}) => {
 
   return (
     <>
@@ -39,7 +39,7 @@ const Hero = ({ scrollToRegistration }) => {
           </button>
         </div>
         <div className=" flex justify-end  sm:w-2/5 max-md:w-full max-sm:h-1/3 max-sm:my-10  sm:flex-col sm:justify-center sm:m-10 ">
-          <img src={secnd} alt="" className="h-auto w-auto rounded-md" />
+          <img src={'/secnd.jpg'} alt="" className="h-auto w-auto rounded-md" />
         </div>
       </section>
     </>

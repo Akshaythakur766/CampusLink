@@ -1,17 +1,15 @@
 import './About.css';
-import logo from '../../public/logo.png';
-import logo2 from '../../public/logo12.png';
 import PersonIcon from '@mui/icons-material/Person';
 const About = () => {
   return (
-    <div className="min-h-screen bg-slate-100 w-full text-black mt-20">
+    <div className="min-h-screen bg-slate-100 w-full text-black mt-16">
       <div className="container">
         <div className="logo-container">
           <div className="logo-wrapper">
-            <img src={logo} alt="" width={100} />
+            <img src={'/logo.png'} alt="" width={100} />
           </div>
           <div className="logo-wrapper">
-            <img src={logo2} alt="" width={200} />
+            <img src={'/logo12.png'} alt="" width={200} />
           </div>
         </div>
         <p className="About-Heading">CampusLink - Free online Attendance Tracking and Library Management Software</p>

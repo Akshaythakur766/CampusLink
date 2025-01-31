@@ -2,9 +2,15 @@ import axios from "axios";
 import HEader from "./HEader";
 import { useState, useEffect } from "react";
 
+interface ListType {
+    bookName:string
+    author:string
+    available:boolean
+}
+
 const AskedBook = () => {
-    const [list, setList] = useState([]);
-    const [error, setError] = useState(null);
+    const [list, setList] = useState<ListType[]>([]);
+    const [error, setError] = useState<string|null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +30,7 @@ const AskedBook = () => {
         fetchData();
     }, []);
 
-    const getNote = (item) => {
+    const getNote = (item:ListType) => {
         if (item.available === true) {
             return "Book is available. Issue the book from the library within two days";
         } else if (item.available === false) {
