@@ -1,5 +1,4 @@
 import './OverviewTeache.css'
-import greeting from '../assets/greeting.svg';
 import HEader from './HEader';
 import CardsTeach from './Cards/CardsTeach';
 const OverviewTeacher = () => {
@@ -9,10 +8,10 @@ const OverviewTeacher = () => {
    <HEader name={"Dashboard"}/>
     <div className='Main'>
       <div className="overview">
-      <div className='greet' style={{ backgroundImage: `url(${greeting})`, width:390}}>
+      <div className='greet' style={{ backgroundImage: `url(/greeting.svg)`, width:390}}>
             <div className='text'>
             <p className='text-h'>Hello Greetings!</p>
-            <p className='text-p'>Welcome {name}</p>
+            <p className='text-p'>Welcome User</p>
             <p className='text-p'>Here's what's happening !</p>
             </div>
             

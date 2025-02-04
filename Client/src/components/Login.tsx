@@ -13,14 +13,14 @@ const Login = () => {
   });
   
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       [e.target.id]: e.target.value
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     const { email, password } = data;
 

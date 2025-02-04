@@ -26,11 +26,11 @@ import TakeAttendance from "./components/TeacherView/TakeAttendance";
 import ViewTechAttendance from "./components/TeacherView/ViewTeahAttendance";
 import Library from "./components/Library";
 import Permission from "./components/StaffView/Permission";
-import OverviewStaff from "./components/OverviewStaff";
+import OverviewStaff from "./components/OverviewStaff.tsx";
 import OverviewLibrarian from "./components/OverviewLibrarian";
 import AvailableBook from "./components/AvailableBook";
 import AskedBook from "./components/AskedBook";
-
+import { ThemeProvider } from "./context/ThemeContext";
 axios.defaults.baseURL = "http://localhost:8000/api";
 axios.defaults.withCredentials = true;
 

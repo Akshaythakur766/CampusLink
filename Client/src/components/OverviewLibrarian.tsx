@@ -2,13 +2,20 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import './OverviewTeache.css';
-import greeting from '../assets/greeting.svg';
 import HEader from './HEader';
 
+interface LibraryData{
+    _id:string
+    course:string
+    name:string
+    quantity:number
+    author:string
+}
+
 const OverviewLibrarian = () => {
-    const [books, setBooks] = useState([]);
-    const [selectedCourse, setSelectedCourse] = useState(null);
-    const [filteredBooks, setFilteredBooks] = useState([]);
+    const [books, setBooks] = useState<LibraryData[]>([]);
+    const [selectedCourse, setSelectedCourse] = useState<string|null>(null);
+    const [filteredBooks, setFilteredBooks] = useState<LibraryData[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,7 +34,7 @@ const OverviewLibrarian = () => {
     const uniqueCourses = [...new Set(books.map(book => book.course))];
 
     // Handle course selection
-    const handleCourse = (course) => {
+    const handleCourse = (course:string) => {
         setSelectedCourse(course);
         toast.success(`${course} books are displayed`);
         const filtered = books.filter(book => book.course === course);
@@ -40,7 +47,7 @@ const OverviewLibrarian = () => {
                 <HEader name={"Dashboard"} />
                 <div className='Main'>
                     <div className="overview">
-                        <div className='greet' style={{ backgroundImage: `url(${greeting})`, width: 390 }}>
+                        <div className='greet' style={{ backgroundImage: `url(/greeting.svg)`, width: 390 }}>
                             <div className='text'>
                                 <p className='text-h'>Hello Greetings!</p>
                                 <p className='text-p'>Welcome, Librarian</p>

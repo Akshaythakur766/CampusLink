@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HEader from './HEader';
-import greeting from '../assets/greeting.svg';
 import './OverviewTeache.css';
 
+interface TeacherList{
+    _id:number
+    firstName:string
+    lastName:string
+    email:string
+    code:string
+}
+
 const OverviewStaff = () => {
-    const [list, setList] = useState([]);
+    const [list, setList] = useState<TeacherList[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,7 +27,7 @@ const OverviewStaff = () => {
         fetchData();
     }, []);
 
-    const getRole = (code) => {
+    const getRole = (code:string) => {
         return code.includes('LIBR') ? 'Librarian' : 'Teacher';
     };
 
@@ -30,10 +37,10 @@ const OverviewStaff = () => {
                 <HEader name={"Dashboard"} />
                 <div className='Main'>
                     <div className="overview">
-                        <div className='greet' style={{ backgroundImage: `url(${greeting})`, width: 390 }}>
+                        <div className='greet' style={{ backgroundImage: `url(/greeting.svg)`, width: 390 }}>
                             <div className='text'>
                                 <p className='text-h'>Hello Greetings!</p>
-                                <p className='text-p'>Welcome {name}</p> {/* Ensure 'name' variable is defined */}
+                                <p className='text-p'>Welcome User</p> {/* Ensure 'name' variable is defined */}
                                 <p className='text-p'>Here's what's happening !</p>
                             </div>
                         </div>

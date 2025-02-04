@@ -1,10 +1,6 @@
-import first from "../assets/first.jpg";
-import secnd from "../assets/secnd.jpg";
-import third from "../assets/third.jpg";
+// import secnd from "../assets/secnd.jpg";
+// import third from "../assets/third.jpg";
 import { Link } from "react-router-dom";
-import feature1 from "../assets/feature1.jpg";
-import feature2 from "../assets/feature2.jpg";
-import feature3 from "../assets/feature3.jpg";
 
 function Services() {
   return (
@@ -24,7 +20,7 @@ function Services() {
               to="#"
               className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
             >
-              <img className="  rounded-lg " src={feature1} alt="feature-1" />
+              <img className="  rounded-lg " src={'feature1.jpg'} alt="feature-1" />
             </Link>
             <div className="p-5 ml-1">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -44,7 +40,7 @@ function Services() {
               to="#"
               className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
             >
-              <img className="rounded-lg" src={feature2} alt="feature-2" />
+              <img className="rounded-lg" src={'feature2.jpg'} alt="feature-2" />
             </Link>
             <div className="p-5 ml-1">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -64,7 +60,7 @@ function Services() {
               to="#"
               className="flex items-center rounded-lg border justify-center m-4 max-md:hidden"
             >
-              <img className="rounded-lg" src={feature3} alt="feature-3" />
+              <img className="rounded-lg" src={'feature3.jpg'} alt="feature-3" />
             </Link>
             <div className="p-5 ml-1">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -82,21 +78,21 @@ function Services() {
         <div className="sm:flex md:-top-[10%] max-md:-top-[10%] sm:right-20 sm:absolute sm:gap-2 hidden ">
           <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              src={secnd}
+              src={'first.jpg'}
               alt="1"
               className="opacity-80 md:size-32 max-md:size-20"
             />
           </div>
           <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              src={first}
+              src={'first.jpg'}
               alt="1"
               className="opacity-80 md:size-32  max-md:size-20 rounded-xl"
             />
           </div>
           <div className="max-w-sm p-2 bg-transparent rounded-xl border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700">
             <img
-              src={third}
+              src={'first.jpg'}
               alt="1"
               className="opacity-80 md:size-32 max-md:size-20"
             />

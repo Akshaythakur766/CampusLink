@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import Darklogo from "../../public/Darklogo1.png";
-import logo1 from "../../public/logo12.png";
-import logo from "../../public/logo.png";
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -10,7 +7,7 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Navbar = ({ Mode }) => {
+const Navbar = ({ Mode }:{Mode?:boolean}) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [role,setRole]=useState(null)
@@ -59,14 +56,14 @@ async function fetchData() {
         <div className="flex items-center">
           <div className="w-[90px] p-2">
             <Link to="/">
-              <img src={logo} alt="emt" />
+              <img src={'/logo.png'} alt="emt" />
             </Link>
           </div>
           <div>
             {Mode ? (
               <Link to="/">
                 <img
-                  src={Darklogo}
+                  src={'/Darklogo1.png'}
                   alt="emt"
                   className="hidden md:block h-[60px] object-cover"
                 />
@@ -74,7 +71,7 @@ async function fetchData() {
             ) : (
               <Link to="/">
                 <img
-                  src={logo1}
+                  src={'/logo12.png'}
                   alt="emt"
                   className="hidden md:block h-[60px] object-cover"
                 />
