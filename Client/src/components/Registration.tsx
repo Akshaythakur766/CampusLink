@@ -1,9 +1,23 @@
 import axios from "axios";
-import { useState ,useEffect,useRef} from "react";
+import { useState ,useEffect,useRef, ChangeEventHandler} from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const Registration = (props) => {
+interface RegistrationType {
+  userType: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  phone?: string,
+  birthDate?: string,
+  password?: string,
+  course?: string,
+  semester?: string,
+  rollNo?: string,
+  code?: string
+}
+
+const Registration = (props:any) => {
   const [userType, setUserType] = useState("student");
   const navigate=useNavigate();
 
@@ -15,11 +29,11 @@ const Registration = (props) => {
     props.focus(focusref);
   }, []);
 
-  const handleUserTypeChange = (event) => {
+  const handleUserTypeChange = (event:React.ChangeEvent<HTMLInputElement> ) => {
     setUserType(event.target.value);
   };
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<RegistrationType>({
     userType: "",
     firstName: "",
     lastName: "",
@@ -29,11 +43,11 @@ const Registration = (props) => {
     password: "",
     course: "",
     semester: "",
-    rollNo: "", // Changed from 'rollno' to 'rollNo'
-    code: "" // Added for teacher section
+    rollNo: "",
+    code: ""
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e:any ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -41,7 +55,7 @@ const Registration = (props) => {
     });
   };
 
-  const handleStudentSubmit = async (e) => {
+  const handleStudentSubmit = async (e:any) => {
     e.preventDefault();
     const { firstName, lastName, email, phone, birthDate, course, semester, rollNo, password } = formData; // Changed FormData to formData
     try {
@@ -73,7 +87,7 @@ const Registration = (props) => {
     }
   };
 
-  const handleTeacherSubmit = async (e) => {
+  const handleTeacherSubmit = async (e:any) => {
     e.preventDefault();
     const { firstName, lastName, email, phone, birthDate, code, password } = formData; // Changed 'name' to 'firstName', removed 'role'
     try {
@@ -105,7 +119,7 @@ const Registration = (props) => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any ) => {
     e.preventDefault();
 
     if (userType === "teacher") {

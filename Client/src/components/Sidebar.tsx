@@ -2,7 +2,6 @@ import { DashContext } from "../context/DashContext";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "../../public/logo.png";
 import "./sidebar.css";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
@@ -121,7 +120,7 @@ const Sidebar = () => {
     <div className="ml-1 md:overflow-hidden overflow-auto md:hover:overflow-auto flex flex-col justify-between sidebar-custom">
       <nav className="flex flex-col bg-white">
         <div className="flex items-center ml-4 Link-custom">
-          <img src={logo} alt="" className="w-10 h-10" />
+          <img src={'/logo.png'} alt="" className="w-10 h-10" />
           <span>CampusLink</span>
         </div>
         {/* nav */}

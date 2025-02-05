@@ -16,7 +16,6 @@ const OverviewLibrarian = () => {
     const [books, setBooks] = useState<LibraryData[]>([]);
     const [selectedCourse, setSelectedCourse] = useState<string|null>(null);
     const [filteredBooks, setFilteredBooks] = useState<LibraryData[]>([]);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
