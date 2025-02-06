@@ -1,20 +1,20 @@
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import Registration from "../components/Registration";
+import Hero from "./Hero";
+import Services from "./Services";
+import Registration from "./Registration";
 import { useState } from "react";
 
 const Homepage = () => {
-  const [elementst, setElementst] = useState(null);
-  const [focust, setFocust] = useState(null);
+  const [elementst, setElementst] = useState<any>(null);
+  const [focust, setFocust] = useState<any>(null);
   
   // function to get scrollElemet
-  function hello(elementst) {
+  function hello(elementst:any) {
     return setElementst(elementst);
   }
 
   // function for Focus element
 
-  function focus(focust) {
+  function focus(focust:any) {
     return setFocust(focust);
   }
 
@@ -23,8 +23,8 @@ const Homepage = () => {
   //function to scroll and focus
   function scrollToRegistration() {
     
-    if (elementst) {
-      elementst.current.scrollIntoView({ behavior: "smooth" });
+    if (elementst && elementst?.current) {
+      elementst?.current.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => focust.current.focus(), 400);
     }
   }
