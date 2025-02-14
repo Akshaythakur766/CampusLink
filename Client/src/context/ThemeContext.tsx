@@ -1,5 +1,6 @@
 import * as React from "react";
 import { createContext } from "react";
+import { ThemeContextType } from "./types";
 
 export const ThemeContext = createContext<ThemeContextType>({
     Theme:"light",

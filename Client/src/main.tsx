@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import ReactDOM from "react-dom/client";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
-import { ThemeContext } from "./context/ThemeContext";
 import Homepage from "./components/Homepage";
 import About from "./components/About";
 import TeacherDash from "./pages/TeacherDash";
@@ -26,7 +25,7 @@ import TakeAttendance from "./components/TeacherView/TakeAttendance";
 import ViewTechAttendance from "./components/TeacherView/ViewTeahAttendance";
 import Library from "./components/Library";
 import Permission from "./components/StaffView/Permission";
-import OverviewStaff from "./components/OverviewStaff.tsx";
+import OverviewStaff from "./components/OverviewStaff";
 import OverviewLibrarian from "./components/OverviewLibrarian";
 import AvailableBook from "./components/AvailableBook";
 import AskedBook from "./components/AskedBook";
@@ -159,7 +158,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document?.getElementById("root")!).render(
   <React.StrictMode>
     <UserContextProvider>
       <RouterProvider router={router} />

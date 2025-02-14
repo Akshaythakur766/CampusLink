@@ -1,4 +1,4 @@
-interface RefreshContextType {
+export interface RefreshContextType {
     role:string;
     refresh:boolean;
     setrefresh:(e:boolean)=>void;
@@ -12,7 +12,14 @@ interface RefreshContextType {
 }
 
 
-interface ThemeContextType {
+export interface ThemeContextType {
     Theme:string
     setTheme:(e:string)=>void
+}
+
+export interface DashContextType{
+    activeMenu:boolean;
+    setActiveMenu:(e:boolean)=>void
+    screenSize:string
+    setScreenSize:(e:string)=>void
 }
