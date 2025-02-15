@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast'
-const Class = () => {
+ export const Class = () => {
     const [data, setData] = useState({
         subj: '',
         course: '',

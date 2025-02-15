@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "@CampusLink/core";
 
-const Darkmode = () => {
+export const Darkmode = () => {
   const [Mode, setMode] = useState(false);
   const { Theme , setTheme } = useContext(ThemeContext);
 

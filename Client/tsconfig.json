@@ -9,8 +9,14 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
+      "paths": {
+      // "@CampusLink/source": ["./src/*"],
+      "@CampusLink/Components":["./src/components"],
+      "@CampusLink/common":["./src/common"],
+      "@CampusLink/core":["./src/core"],
+      "@CampusLink/auth":["./src/auth"],
+      "@CampusLink/assets":["./src/assets"],
+      "@CampusLink/pages":["./src/pages"],
     },
     "allowJs": true,
     "checkJs": false

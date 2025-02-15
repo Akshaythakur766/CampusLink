@@ -2,16 +2,16 @@ import { useState, createContext, useContext, ReactNode } from "react";
 import { DashContextType } from "./types";
 
 
-const StateContext = createContext<DashContextType>({
-  activeMenu:false,
-  setActiveMenu:()=>undefined,
-  screenSize:'',
-  setScreenSize:()=>undefined
+export const StateContext = createContext<DashContextType>({
+  activeMenu: false,
+  setActiveMenu: () => undefined,
+  screenSize: null,
+  setScreenSize: () => undefined,
 });
 
-export const DashProvider = ({ children }:{children:ReactNode}) => {
+export const DashProvider = ({ children }: { children: ReactNode }) => {
   const [activeMenu, setActiveMenu] = useState(true);
-  const [screenSize, setScreenSize] = useState('');
+  const [screenSize, setScreenSize] = useState(null);
 
   return (
     <StateContext.Provider

@@ -1,6 +1,6 @@
-import { DashContext } from "../context/DashContext";
+import { DashContext } from "@CampusLink/core";
 
-const DashNav = () => {
+export const DashNav = () => {
   const { activeMenu, setActiveMenu, } =
     DashContext();
 

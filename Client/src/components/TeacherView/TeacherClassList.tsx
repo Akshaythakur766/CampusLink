@@ -3,9 +3,8 @@ import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import EditPopUp from "../PopUp/EditCLassname.popup";
-import { UserContext } from "../../context/Refresh";
+import { UserContext } from "@CampusLink/core";
 import DeletePopUp from "../PopUp/DeleteClass.popup";
-import AddClass from "../PopUp/Addclass.popup";
 import "./Teacherclass.css";
 import HEader from "../HEader";
 import { DataTypes } from "./TakeAttendance";
@@ -16,7 +15,7 @@ interface PopupType {
   id: number;
 }
 
-const ClassList = () => {
+export const ClassList = () => {
   const provider = useContext(UserContext);
   const { refresh } = provider;
   const [openAddDrawer, setOpenAddDrawer] = useState(false);
@@ -92,13 +91,22 @@ const ClassList = () => {
   return (
     <div className="divClassName">
       <HEader name={"Class List"} />
+
       <div className="class-flex">
         <div className="class-left">
+          <div className="btn-addclass">
+            <button
+              className="btn buttonCol px-4 py-2 mt-2"
+              onClick={() => setOpenAddDrawer(true)}
+            >
+              Add class
+            </button>
+          </div>
           <div className="in-between">List of all the classes.</div>
           <div className="table-container">
             <table className="table-custom ">
               <thead>
-                <tr>
+                <tr>6
                   <th>Sr.NO</th>
                   <th>Subject Name</th>
                   <th>Semester</th>
@@ -108,14 +116,6 @@ const ClassList = () => {
               </thead>
               <tbody>{displaydata}</tbody>
             </table>
-          </div>
-          <div className="btn-addclass">
-            <button
-              className="btn buttonCol px-4 py-2"
-              onClick={() => setOpenAddDrawer(true)}
-            >
-              Add class
-            </button>
           </div>
         </div>
       </div>

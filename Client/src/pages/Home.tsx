@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Darkmode from "../components/Darkmode";
 
-const Home = () => {
+export const Home = () => {
   return (
     <>
       <Navbar />

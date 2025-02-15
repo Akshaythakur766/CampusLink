@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { UserContext } from "../../context/Refresh";
+import { UserContext } from "@CampusLink/core";
 import { useNavigate } from "react-router-dom";
 import HEader from "../HEader";
 
@@ -11,7 +11,7 @@ export interface DataTypes{
   course:string
 }
 
-const TakeAttendance = () => {
+export const TakeAttendance = () => {
   const provider = useContext(UserContext)
   const { refresh } = provider
   const [data, setData] = useState<DataTypes[]>([]);

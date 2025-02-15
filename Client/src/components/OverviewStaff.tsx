@@ -11,7 +11,7 @@ interface TeacherList{
     code:string
 }
 
-const OverviewStaff = () => {
+export const OverviewStaff = () => {
     const [list, setList] = useState<TeacherList[]>([]);
 
     useEffect(() => {

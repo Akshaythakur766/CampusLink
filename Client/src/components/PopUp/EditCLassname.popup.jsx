@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import './Popup.css';
 
-import { UserContext } from '../../context/Refresh';
+import { UserContext } from '@CampusLink/core';
 
 
 const EditPopUp=(props)=>{

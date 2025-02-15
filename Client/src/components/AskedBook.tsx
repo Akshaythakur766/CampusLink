@@ -8,7 +8,7 @@ interface ListType {
     available:boolean
 }
 
-const AskedBook = () => {
+export const AskedBook = () => {
     const [list, setList] = useState<ListType[]>([]);
     const [error, setError] = useState<string|null>(null);
 

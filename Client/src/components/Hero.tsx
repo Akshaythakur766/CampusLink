@@ -1,6 +1,5 @@
 
-
-const Hero = ({ scrollToRegistration }:{scrollToRegistration:()=>void}) => {
+export const Hero = ({ scrollToRegistration }:{scrollToRegistration:()=>void}) => {
 
   return (
     <>

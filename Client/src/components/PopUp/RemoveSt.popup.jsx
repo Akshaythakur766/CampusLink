@@ -2,7 +2,7 @@ import axios from "axios";
 import CloseIcon from '@mui/icons-material/Close';
 import { useContext, useState } from "react";
 
-import { UserContext } from '../../context/Refresh'
+import { UserContext } from '@CampusLink/core'
 
 import toast from "react-hot-toast";
 

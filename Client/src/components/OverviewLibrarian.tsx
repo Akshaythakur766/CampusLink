@@ -12,7 +12,7 @@ interface LibraryData{
     author:string
 }
 
-const OverviewLibrarian = () => {
+export const OverviewLibrarian = () => {
     const [books, setBooks] = useState<LibraryData[]>([]);
     const [selectedCourse, setSelectedCourse] = useState<string|null>(null);
     const [filteredBooks, setFilteredBooks] = useState<LibraryData[]>([]);

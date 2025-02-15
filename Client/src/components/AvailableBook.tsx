@@ -16,7 +16,7 @@ interface ListType {
   course: string;
 }
 
-const AvailableBook = () => {
+export const AvailableBook = () => {
   const [list, setList] = useState<ListType[]>([]);
 
   useEffect(() => {

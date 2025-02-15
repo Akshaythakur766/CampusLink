@@ -3,26 +3,21 @@ import axios from "axios";
 import { RefreshContextType } from "./types";
 
 // Create the UserContext
-export const UserContext = createContext<RefreshContextType>({
-    role:'',
-    name:'',
-    refresh:false,
-    setrefresh:()=>{},
-    refresh1:false,
-    setrefresh1:()=>{},
-    refresh2:false,
-    setrefresh2:()=>{},
-    refresh3:false,
-    setrefresh3:()=>{}
-
+const UserContext = createContext<RefreshContextType>({
+  role: "",
+  name: "",
+  refresh: false,
+  setrefresh: () => {},
+  refresh1: false,
+  setrefresh1: () => {},
+  refresh2: false,
+  setrefresh2: () => {},
+  refresh3: false,
+  setrefresh3: () => {},
 });
 
 // Define the UserContextProvider component
-export function UserContextProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function UserContextProvider({ children }: { children: React.ReactNode }) {
   const [role, setRole] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [refresh, setrefresh] = useState<boolean>(true);
@@ -65,3 +60,5 @@ export function UserContextProvider({
     </UserContext.Provider>
   );
 }
+
+export { UserContext, UserContextProvider };

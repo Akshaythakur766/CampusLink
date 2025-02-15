@@ -2,7 +2,7 @@ import   PermIdentityIcon  from '@mui/icons-material/AccountCircle';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 
-const HEader = ({name}:{name:string}) => {
+export const HEader = ({name}:{name:string}) => {
 const [username,setname]=useState('')
 
     useEffect(() => {

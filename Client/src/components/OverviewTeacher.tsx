@@ -1,7 +1,7 @@
 import './OverviewTeache.css'
 import HEader from './HEader';
 import CardsTeach from './Cards/CardsTeach';
-const OverviewTeacher = () => {
+export const OverviewTeacher = () => {
   return (
     <div className='box'>
   <div className='divclassName'>

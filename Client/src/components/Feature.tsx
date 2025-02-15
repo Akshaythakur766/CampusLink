@@ -6,7 +6,7 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
 import "./Feature.css";
 
-const FeatureCard = ({
+export const FeatureCard = ({
   name,
   Icon,
   data,
@@ -24,7 +24,7 @@ const FeatureCard = ({
   );
 };
 
-const Feature = () => {
+export const Feature = () => {
   return (
     <div className="min-vh-100 bg-light w-100 text-dark mt-5">
       <div className="Feature-card-1">

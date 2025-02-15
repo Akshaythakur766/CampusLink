@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { UserContext } from "../../context/Refresh";
+import { UserContext } from "@CampusLink/core";
 import GeneratePopUp from '../PopUp/Genatten.popup';
 import AddStudent from '../PopUp/AddStudent.popup';
 import RemoveSt from '../PopUp/RemoveSt.popup';
@@ -14,7 +14,7 @@ import HEader from '../HEader';
     semester:string,
     course:string
  }
-const StudentList = () => {
+export const StudentList = () => {
     const location = useLocation();
     const { state } = location;
     const provider = useContext(UserContext);

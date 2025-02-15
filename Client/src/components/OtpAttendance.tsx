@@ -1,7 +1,7 @@
 import HEader from "./HEader";
 import { useLocation } from "react-router-dom";
 
-const OtpAttendance = () => {
+export const OtpAttendance = () => {
   const location = useLocation();
   const { otp } = location.state || {};
 

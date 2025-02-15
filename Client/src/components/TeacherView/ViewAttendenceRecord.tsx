@@ -17,7 +17,7 @@ interface GroupMothType{
     day:string
 }
 
-const ViewAttdRecord = () => {
+export const ViewAttdRecord = () => {
     const [attendanceRecords, setAttendanceRecords] = useState<AttendenceRecordType[]>([]);
     const [groupedByMonth, setGroupedByMonth] = useState<any>({});
 

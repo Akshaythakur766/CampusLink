@@ -1,4 +1,4 @@
-import { DashContext } from "../context/DashContext";
+import { DashContext } from "@CampusLink/core";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -10,7 +10,7 @@ import BookIcon from "@mui/icons-material/Book";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import SchoolIcon from "@mui/icons-material/School";
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize } = DashContext();
   const [role, setRole] = useState("");
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const Sidebar = () => {
   }, []);
 
   const handleCloseSideBar = () => {
-    if (activeMenu && screenSize <= 900) {
+    if (activeMenu && screenSize &&screenSize <= 900) {
       setActiveMenu(false);
     }
   };

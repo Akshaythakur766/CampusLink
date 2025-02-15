@@ -10,7 +10,7 @@ interface listType {
   code: string;
   Used: boolean;
 }
-const Permission = () => {
+export const Permission = () => {
   const [list, setList] = useState<listType[]>([]);
   const [code, setCode] = useState("Not generated");
   const [refresh, setRefresh] = useState(false);

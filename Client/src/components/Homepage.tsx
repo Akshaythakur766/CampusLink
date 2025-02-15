@@ -3,7 +3,7 @@ import Services from "./Services";
 import Registration from "./Registration";
 import { useState } from "react";
 
-const Homepage = () => {
+export const Homepage = () => {
   const [elementst, setElementst] = useState<any>(null);
   const [focust, setFocust] = useState<any>(null);
   
@@ -39,4 +39,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export  default Homepage;

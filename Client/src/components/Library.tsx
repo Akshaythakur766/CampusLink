@@ -17,7 +17,7 @@ interface booksType {
   course: string;
 }
 
-const Library = () => {
+export const Library = () => {
   const [books, setBooks] = useState<booksType[]>([]);
   const [selectedCourse, setSelectedCourse] = useState<string>("");
   const [filteredBooks, setFilteredBooks] = useState<any[]>([]);

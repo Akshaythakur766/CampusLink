@@ -1,6 +1,6 @@
 import './About.css';
 import PersonIcon from '@mui/icons-material/Person';
-const About = () => {
+export const About = () => {
   return (
     <div className="min-h-screen bg-slate-100 w-full text-black mt-16">
       <div className="container">

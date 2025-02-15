@@ -48,12 +48,24 @@ const {
   handleAddCode,
   handleTeacherList,
 } = require("../Controller/code.controller");
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "http://localhost:3000", 
+];
+
 router.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
+
 
 router.post("/StudentRegister", handleStudentRegister);
 router.post("/login", handleLogin);

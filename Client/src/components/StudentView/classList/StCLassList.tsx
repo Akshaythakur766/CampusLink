@@ -15,7 +15,7 @@ interface classListType{
     }
 }
 
-const StCLassList = () => {
+export const StCLassList = () => {
     const [classList, setClassList] = useState<classListType[]>([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedClassId, setSelectedClassId] = useState<number|null>(null); // State to store the ID of the selected class

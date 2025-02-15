@@ -7,7 +7,7 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Navbar = ({ Mode }:{Mode?:boolean}) => {
+export const Navbar = ({ Mode }:{Mode?:boolean}) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [role,setRole]=useState(null)

@@ -11,7 +11,7 @@ interface AttendanceDataType {
   present:boolean
   topicname:string
 }
-const ViewAttendance = () => {
+export const ViewAttendance = () => {
   const [data, setData] = useState<AttendanceDataType[]>([]);
   const location = useLocation();
   const { state } = location;

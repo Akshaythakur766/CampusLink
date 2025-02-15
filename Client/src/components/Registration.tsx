@@ -17,7 +17,7 @@ interface RegistrationType {
   code?: string
 }
 
-const Registration = (props:any) => {
+export const Registration = (props:any) => {
   const [userType, setUserType] = useState("student");
   const navigate=useNavigate();
 

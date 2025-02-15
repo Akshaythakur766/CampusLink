@@ -2,7 +2,7 @@
 // import third from "../assets/third.jpg";
 import { Link } from "react-router-dom";
 
-function Services() {
+export const Services=()=> {
   return (
     <>
       <div className=" relative flex flex-col justify-center items-center  bg-violet-500 bg-opacity-4  rounded-lg min-h-screen m-4">

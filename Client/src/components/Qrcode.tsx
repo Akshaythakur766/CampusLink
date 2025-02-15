@@ -1,6 +1,6 @@
 import QRCode from 'qrcode.react';
 
-const QRCodeComponent = ({ value }:{value:string}) => {
+export const QRCodeComponent = ({ value }:{value:string}) => {
     return (
         <div>
             <h2>Scan the QR Code</h2>

@@ -2,7 +2,7 @@ import Cards from './Cards/cards';
 import './overview.css';
 import Percentcard from './Card/percentcard';
 import HEader from './HEader';
-const Overview = () => {
+export const Overview = () => {
   return (
     <div className='divClassName '>
         <HEader name={'DashBoard'}/>

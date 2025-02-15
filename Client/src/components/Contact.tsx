@@ -2,7 +2,7 @@ import  { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 //TODO: just to know about email an change it 
-function Contact() {
+export const  Contact=()=> {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e:any) => {

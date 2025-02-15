@@ -1,9 +1,9 @@
 import Sidebar from "../components/Sidebar";
-import { DashContext, DashProvider } from "../context/DashContext";
+import { DashContext, DashProvider } from "@CampusLink/core";
 import { Outlet, } from "react-router-dom";
 import { useEffect } from "react";
 
-const TeacherDash = () => {
+export const TeacherDash = () => {
   return (
     <DashProvider>
       <DashContent />
@@ -11,7 +11,7 @@ const TeacherDash = () => {
   );
 };
 
-const DashContent = () => {
+export const DashContent = () => {
   const { activeMenu, setActiveMenu, screenSize, setScreenSize } =
     DashContext(); // Use useContext hook to access context
  
@@ -31,7 +31,7 @@ const DashContent = () => {
   }, []);
 
   useEffect(() => {
-    if (screenSize <= 900) {
+    if (screenSize && screenSize <= 900) {
       setActiveMenu(false);
     } else {
       setActiveMenu(true);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Classes = () => {
+export const Classes = () => {
   return <div>Classes</div>;
 };
 

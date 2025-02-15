@@ -1,4 +1,4 @@
-const Button = ({
+export const Button = ({
   label,
   className,
   onClick,
