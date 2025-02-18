@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { RefreshContextType } from "./types";
+import { RefreshContextType } from "../types";
 
 // Create the UserContext
 const UserContext = createContext<RefreshContextType>({

@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, ReactNode } from "react";
-import { DashContextType } from "./types";
+import { DashContextType } from "../types";
 
 
 export const StateContext = createContext<DashContextType>({

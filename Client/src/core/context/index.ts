@@ -1,3 +1,3 @@
 export * from './DashContext'
-export * from './Refresh'
+export * from './RefreshContext'
 export * from './ThemeContext'
