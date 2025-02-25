@@ -1,6 +1,5 @@
 export * from './AddClassDrawer'
 export * from './AddStudent.popup'
-export * from './AddStudentDrawer'
 export * from './AskBook.popup'
 export * from './DeleteClass.popup'
 export * from  './EditCLassname.popup'
