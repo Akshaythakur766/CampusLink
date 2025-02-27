@@ -6,6 +6,7 @@ async function MongoConnect(URI:string ){
     })
     .catch((err:any)=>{
         console.log(`error occurred ${err}`)
+        process.exit(1)
     })
 }
 export {MongoConnect}

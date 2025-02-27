@@ -2,7 +2,7 @@ import userModel from "../model/auth"
 import jwt from "jsonwebtoken"
 import Teacher from "../model/teacherauth"
 import CodeModel from "../model/Code"
-
+import  { config} from "../config/env"
 async function handleStudentRegister(req:any,res:any){
     const {course,email,firstName,lastName,password,rollNo,semester,phone}=req.body;
 try{`11`
@@ -59,7 +59,7 @@ async function handleLogin(req:any, res:any) {
                 if (password === "staff@123") {
                     jwt.sign(
                         { email: "staff@gmail.com", name: 'Staff', role: "staff" },
-                        process.env.JWT_SECRET_KEY || "",
+                        config.jwtSecret,
                         { expiresIn: 30 * 24 * 3600 },
                         (err, token) => {
                             if (err) throw err;
@@ -78,7 +78,7 @@ async function handleLogin(req:any, res:any) {
             if (confirmPassword) {
                 jwt.sign(
                     { email: user.email, id: user._id, name: user?.firstName, role: "student" },
-                    process.env.JWT_SECRET_KEY || "",
+                    config.jwtSecret,
                     { expiresIn: 30 * 24 * 3600 },
                     (err, token) => {
                         if (err) throw err;
@@ -98,7 +98,7 @@ async function handleLogin(req:any, res:any) {
                     if (confirmPassword) {
                         jwt.sign(
                             { email: teacher.email, id: teacher._id, role: role },
-                            process.env.JWT_SECRET_KEY || '',
+                            config.jwtSecret,
                             { expiresIn: 30 * 24 * 3600 },
                             (err, token) => {
                                 if (err) throw err;

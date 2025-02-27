@@ -1,5 +1,5 @@
-import Class from "../model/Class";
-import User from "../model/auth";
+import Class from "./Class";
+import User from "./auth";
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
