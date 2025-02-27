@@ -1,5 +1,4 @@
-const mongoose =require('mongoose')
-
+import mongoose from "mongoose"
 const Schema= new mongoose.Schema({
     name:{
         type:String
@@ -20,6 +19,6 @@ const Schema= new mongoose.Schema({
 
 })
 
-const LibModel= new mongoose.model('Library',Schema)
+const LibModel=  mongoose.model('Library',Schema)
 
-module.exports= LibModel
+export default LibModel

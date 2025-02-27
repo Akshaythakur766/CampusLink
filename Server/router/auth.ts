@@ -1,72 +1,75 @@
-const express = require("express");
-const cors = require("cors");
-const router = express.Router();
-const {
+import express from "express";
+import cors from "cors";
+import {
   handleStudentRegister,
   handleTeacherRegister,
   handleLogin,
   handleLogout,
-} = require("../Controller/auth.controller");
-const { authroization } = require("../middlewares/authcounter");
-const {
+} from "../Controller/auth.controller";
+import { authroization } from "../middlewares/authcounter";
+import {
   handleCreateClass,
   handleclassListdata,
   handleDeleteClass,
   handleEditClass,
-} = require("../Controller/class.controller");
-const { handleProfile } = require("../Controller/profile.controller");
-const {
+} from "../Controller/class.controller";
+import { handleProfile } from "../Controller/profile.controller";
+import {
   handleStudentList,
   handleaddStudent,
   handleaddStudentToList,
   handleRemoveStudent,
-} = require("../Controller/student.controller");
-const {
+} from "../Controller/student.controller";
+import {
   handleclassListToStudent,
   handleViewAttendance,
   handleClasslistOfStudent,
-} = require("../Controller/StudentView.controller");
-const {
+} from "../Controller/StudentView.controller";
+import {
   handleGenerateAttendance,
   handleMarkAttendence,
-} = require("../Controller/Attendence.controller");
-const {
+} from "../Controller/Attendence.controller";
+import {
   handleTeacherViewAttendence,
   handleGetTeacherAttendenceRecord,
   handleTeacherOverview,
-} = require("../Controller/Teacher.controller");
-const {
+} from "../Controller/Teacher.controller";
+import {
   handleshowbooks,
   handleRecommendbooks,
   handleAskRequest,
   handleReqList,
   handleAskedBooks,
   handleChangeAvailable,
-} = require("../Controller/Library.Controller");
-const {
+} from "../Controller/Library.Controller";
+import {
   handleCodeList,
   handleAddCode,
   handleTeacherList,
-} = require("../Controller/code.controller");
-const allowedOrigins = [
-  "http://localhost:5173", 
-  "http://localhost:3000", 
-  "http://192.168.29.231:3000"
+} from "../Controller/code.controller";
+
+const router = express.Router();
+
+const allowedOrigins: string[] = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://192.168.29.231:3000",
 ];
 
-router.use(
-  cors({
-    credentials: true,
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
-
+const corsOptions: cors.CorsOptions = {
+  credentials: true,
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+router.use(cors(corsOptions));
 
 router.post("/StudentRegister", handleStudentRegister);
 router.post("/login", handleLogin);
@@ -162,4 +165,5 @@ router.get(
 );
 router.get("/teacherList", authroization(["staff"]), handleTeacherList);
 
-module.exports = router;
+export default router;
+

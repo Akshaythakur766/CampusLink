@@ -16,7 +16,7 @@ interface DropdownProps {
   disabled?: boolean;
   variant?: "filled" | "outlined" | "standard";
 }
-function Dropdown(props: DropdownProps) {
+function CommonDropdown(props: DropdownProps) {
   const {
     value,
     onChange,
@@ -58,4 +58,4 @@ function Dropdown(props: DropdownProps) {
   );
 }
 
-export { Dropdown };
+export { CommonDropdown };

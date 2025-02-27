@@ -1,12 +1,12 @@
-const ClassModel = require('../model/Class');
-const LibModel =require('../model/Library.Model')
-const UserModel = require('../model/auth')
-const Teacher=require('../model/teacherauth')
-const Available=require('../model/Available.Library.Model')
-const StudentClasses = require('../model/studentVew.model');
+import ClassModel from "../model/Class";
+import LibModel from "../model/Library.Model";
+import UserModel from "../model/auth";
+import Teacher from "../model/teacherauth";
+import Available from "../model/Available.Library.Model";
+import StudentClasses from "../model/studentVew.model";
 
 
-async function handleshowbooks(req,res){
+async function handleshowbooks(req:any,res:any){
     
     try {
       const response= await LibModel.find({})
@@ -15,13 +15,13 @@ async function handleshowbooks(req,res){
       console.log(error)
     }
 }
-async function handleRecommendbooks(req, res) {
+async function handleRecommendbooks(req:any, res:any) {
   const role = req.user.role;
   const userId = req.user.id;
 
   try {
       if (role == 'student') {
-          const user = await UserModel.findById(userId); 
+          const user:any = await UserModel.findById(userId); 
           const course =[ user.course]; 
           const subjects = await StudentClasses.find({ student: userId }).populate({
               path: 'classes.class',
@@ -31,19 +31,20 @@ async function handleRecommendbooks(req, res) {
           const uniqueSubjects = new Set();
           subjects.forEach(subject => {
               subject.classes.forEach(clas => {
-                  uniqueSubjects.add(clas.class.subj);
+            // @ts-ignore
+                  uniqueSubjects.add(clas?.class?.subj);
               });
           });
           course.push('G.K','Literature')
           res.json({subject:[...uniqueSubjects],course:course});
       } else if (role == 'teacher') {
           const subjects = await ClassModel.find({teacher_id:userId})
-          const subject=[]
-          const course=[]
+          const subject:string[]=[]
+          const course:string[]=[]
 
         subjects.forEach(sub=>{
-            subject.push(sub.subj)
-            course.push(sub.course)
+            subject.push(sub.subj as string)
+            course.push(sub.course as string)
             course.push('G.K','Literature')
         })
         res.json({subject:subject,course:course})
@@ -57,7 +58,7 @@ async function handleRecommendbooks(req, res) {
 }
 
 
-async function handleAskRequest(req, res) {
+async function handleAskRequest(req:any, res:any) {
     const role = req.user.role;
     const { bookName, author } = req.body;
 
@@ -115,7 +116,7 @@ async function handleAskRequest(req, res) {
     }
 }
 
-async function handleReqList(req, res) {
+async function handleReqList(req:any, res:any) {
     try {
         const response = await Available.find({});
         res.json({ list: response });
@@ -125,7 +126,7 @@ async function handleReqList(req, res) {
     }
 }
 
-const handleAskedBooks = async (req, res) => {
+const handleAskedBooks = async (req:any, res:any) => {
     const email = req.user.email;
 
     try {
@@ -143,7 +144,7 @@ const handleAskedBooks = async (req, res) => {
 };
 
 
-async function handleChangeAvailable(req, res) {
+async function handleChangeAvailable(req:any, res:any) {
     const { id, available } = req.body;
 
     try {
@@ -184,4 +185,4 @@ async function handleChangeAvailable(req, res) {
 }
 
 
-module.exports={handleshowbooks,handleRecommendbooks,handleAskRequest,handleReqList,handleAskedBooks,handleChangeAvailable}
+export {handleshowbooks,handleRecommendbooks,handleAskRequest,handleReqList,handleAskedBooks,handleChangeAvailable}

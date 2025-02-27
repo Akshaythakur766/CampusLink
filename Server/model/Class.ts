@@ -1,8 +1,8 @@
-const mongoose =require("mongoose");
-const Teacher = require("./teacherauth");
-const User=require("./auth")
+import mongoose from "mongoose";
+import Teacher from "./teacherauth"
+import User from "./auth"
 
-const classSchema = mongoose.Schema({
+const classSchema =new mongoose.Schema({
     subj:{
         type:String,
     },
@@ -28,4 +28,4 @@ const classSchema = mongoose.Schema({
 
 const ClassModel=mongoose.model("Class",classSchema)
 
-module.exports=ClassModel;
+export default ClassModel

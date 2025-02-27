@@ -1,6 +1,5 @@
-const StudentClasses = require('../model/studentVew.model');
-
-async function handleclassListToStudent(req, res) {
+import StudentClasses from "../model/studentVew.model";
+async function handleclassListToStudent(req:any, res:any) {
     const userID = req.user.id;
     try {
         const populatedStudentClasses = await StudentClasses.find({ student: userID }).populate({
@@ -26,7 +25,7 @@ async function handleclassListToStudent(req, res) {
 }
 
 
-async function handleViewAttendance(req, res) {
+async function handleViewAttendance(req:any, res:any) {
     const userID = req.user.id;
     const { classid } = req.body;
 
@@ -41,17 +40,15 @@ async function handleViewAttendance(req, res) {
         }
 
         // Extract and return the attendance information for the specified class
-        const classAttendance = attendanceRecord.classes.find(cls => cls.class.toString() === classid);
+        const classAttendance = attendanceRecord.classes.find((cls:any) => cls.class.toString() === classid);
 
-        console.log('classAttendance',classAttendance.Attendance)
-
-        return res.status(200).json({ attendance: classAttendance.Attendance });
+        return res.status(200).json({ attendance: classAttendance?.Attendance });
     } catch (error) {
         console.error("Error viewing attendance:", error);
         return res.status(500).json({ error: "Internal server error." });
     }
 }
-async function handleClasslistOfStudent(req, res) {
+async function handleClasslistOfStudent(req:any, res:any) {
     const userID = req.user.id;
 
     try {
@@ -67,11 +64,11 @@ async function handleClasslistOfStudent(req, res) {
             return res.json({ error: "No record found" });
         }
 
-        const classList = studentRecord.classes.map(classRecord => {
-            const className = classRecord.class.subj;
-            const teacherName = `${classRecord.class.teacher_id.firstName} ${classRecord.class.teacher_id.lastName}`;
+        const classList = studentRecord.classes.map((classRecord:any) => {
+            const className = classRecord?.class?.subj;
+            const teacherName = `${classRecord?.class?.teacher_id?.firstName} ${classRecord?.class?.teacher_id?.lastName}`;
             let presentCount = 0;
-            classRecord.Attendance.forEach(attendance => {
+            classRecord.Attendance.forEach((attendance:any) => {
                 if (attendance.present) {
                     presentCount++;
                 }
@@ -89,5 +86,5 @@ async function handleClasslistOfStudent(req, res) {
 
 
 
-module.exports = { handleclassListToStudent,handleViewAttendance,handleClasslistOfStudent };
+export { handleclassListToStudent,handleViewAttendance,handleClasslistOfStudent };
     

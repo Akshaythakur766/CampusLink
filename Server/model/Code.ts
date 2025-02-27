@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema({
     name: {
@@ -21,6 +21,6 @@ const Schema = new mongoose.Schema({
     }
 });
 
-const CodeModel = new mongoose.model("Staff", Schema);
+const CodeModel =  mongoose.model("Staff", Schema);
 
-module.exports = CodeModel;
+export default CodeModel

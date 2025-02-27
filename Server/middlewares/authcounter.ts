@@ -1,14 +1,13 @@
-const jwt=require("jsonwebtoken")
+import jwt from "jsonwebtoken";
 
-
- function authroization(roles) {
-    return function(req, res, next) {
+ function authroization(roles:string[]) {
+    return function(req:any, res:any, next:any) {
         const  {token}  = req.cookies;
         if (!token) {
             return res.status(401).json('No token provided');
         }
 
-        jwt.verify(token, process.env.JWT_SECRET_KEY, {}, (err, user) => {
+        jwt.verify(token, process.env.JWT_SECRET_KEY ?? "", {}, (err:any, user:any) => {
             if (err) {
                 return res.status(403).json('Failed to authenticate token');
             }
@@ -24,4 +23,4 @@ const jwt=require("jsonwebtoken")
     };
 }
 
-module.exports={authroization}
+export {authroization}

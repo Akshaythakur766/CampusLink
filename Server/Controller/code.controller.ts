@@ -1,6 +1,6 @@
-const CodeModel = require('../model/Code');
-const Teacher=require('../model/teacherauth')
-async function handleCodeList(req, res) {
+import CodeModel from "../model/Code";
+import Teacher from "../model/teacherauth";
+async function handleCodeList(req:any, res:any) {
     try {
         const response = await CodeModel.find({});
         res.json({ data: response });
@@ -10,7 +10,7 @@ async function handleCodeList(req, res) {
     }
 }
 
-async function handleAddCode(req, res) {
+async function handleAddCode(req:any, res:any) {
     const { code, name, email, role } = req.body;
 
     try {
@@ -29,9 +29,9 @@ async function handleAddCode(req, res) {
     }
 }
 
-async function handleTeacherList(req,res){
+async function handleTeacherList(req:any,res:any){
     const response=await Teacher.find({})
     res.json({list:response})
 }
 
-module.exports = { handleAddCode, handleCodeList,handleTeacherList };
+export { handleAddCode, handleCodeList,handleTeacherList };

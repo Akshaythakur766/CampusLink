@@ -1,20 +1,20 @@
-const studentClasses = require('../model/studentVew.model')
-const ClassModel = require('../model/Class')
-const UserModel = require('../model/auth')
+import studentClasses from "../model/studentVew.model";
+import ClassModel from "../model/Class";
+import UserModel from "../model/auth";
 
 
 
-async function handleTeacherViewAttendence(req, res) {
+async function handleTeacherViewAttendence(req:any, res:any) {
     const userID = req.user.id;
     const { studentid, classid } = req.body;
     try {
-        const response = await ClassModel.find({ student: studentid, 'classes.class': classid })
+        const response:any = await ClassModel.find({ student: studentid, 'classes.class': classid })
 
         if (!response) {
             res.json({ error: "There is no Attendence record related to thia student" })
         }
 
-        const record = response.classes.find(cls => cls.class.toString() === classid)
+        const record = response?.classes?.find((cls:any) => cls.class.toString() === classid)
 
         if (!record) {
             res.json({ error: "There is no Attendence record related to thia student" })
@@ -23,13 +23,13 @@ async function handleTeacherViewAttendence(req, res) {
         res.json({ message: record.Attendance })
 
     }
-    catch (error) {
-        res.json({ error: "errro", error })
+    catch (error:any) {
+        res.json({  error })
     }
 }
 
 
-async function handleGetTeacherAttendenceRecord(req, res) {
+async function handleGetTeacherAttendenceRecord(req:any, res:any) {
     const { classid } = req.body;
 
     try {
@@ -48,8 +48,8 @@ async function handleGetTeacherAttendenceRecord(req, res) {
 
         // Array to store attendance records for each student
         const attendanceRecords = [];
-        let firstStudentAttendanceDates = [];
-        let firstStudentTopicNames = [];
+        let firstStudentAttendanceDates:any = [];
+        let firstStudentTopicNames:any = [];
 
         // Iterate over each student ID
         for (let i = 0; i < studentIds.length; i++) {
@@ -61,7 +61,7 @@ async function handleGetTeacherAttendenceRecord(req, res) {
             if (studentClass) {
                 // Extract attendance information from the found document
                 const attendanceDetails = studentClass.classes
-                    .filter(cls => cls.class.toString() === classid)
+                    .filter((cls:any) => cls.class.toString() === classid)
                     .map(cls => cls.Attendance)
                     .flat();
 
@@ -77,8 +77,8 @@ async function handleGetTeacherAttendenceRecord(req, res) {
                 // Push attendance records with user details for the current student to the array
                 attendanceRecords.push({
                     studentId,
-                    name: `${user.firstName} ${user.lastName}`,
-                    rollno: user.rollNo,
+                    name: `${user?.firstName} ${user?.lastName}`,
+                    rollno: user?.rollNo,
                     attendance: attendanceDetails.map(att => att.present)
                 });
             } else {
@@ -99,7 +99,7 @@ async function handleGetTeacherAttendenceRecord(req, res) {
     }
 }
 
-const handleTeacherOverview = async (req, res) => {
+const handleTeacherOverview = async (req:any, res:any) => {
     const userID = req.user.id;
 
     try {
@@ -130,16 +130,16 @@ const handleTeacherOverview = async (req, res) => {
             // Fetch attendance records for the first student in the class
             const firstStudentRecords = await studentClasses.findOne({ student: firstStudentId, 'classes.class': cls._id });
 
-            let attendanceDates = [];
+            let attendanceDates:any = [];
             if (firstStudentRecords) {
-                const classAttendance = firstStudentRecords.classes.find(c => c.class.toString() === cls._id.toString());
+                const classAttendance = firstStudentRecords.classes.find((c:any) => c.class.toString() === cls._id.toString());
                 if (classAttendance) {
                     attendanceDates = classAttendance.Attendance.map(att => att.Date);
                 }
             }
 
             // Initialize attendance summary
-            const attendanceSummary = attendanceDates.map(date => ({
+            const attendanceSummary = attendanceDates.map((date:any) => ({
                 date,
                 presentCount: 0
             }));
@@ -149,10 +149,10 @@ const handleTeacherOverview = async (req, res) => {
 
             // Update attendance summary with presence counts for each date
             attendanceRecords.forEach(record => {
-                const classRecord = record.classes.find(c => c.class.toString() === cls._id.toString());
+                const classRecord = record.classes.find((c:any) => c.class.toString() === cls._id.toString());
                 if (classRecord) {
                     classRecord.Attendance.forEach(att => {
-                        const summaryEntry = attendanceSummary.find(entry => entry.date.getTime() === att.Date.getTime());
+                        const summaryEntry = attendanceSummary.find((entry:any) => entry.date.getTime() === att?.Date?.getTime());
                         if (summaryEntry && att.present) {
                             summaryEntry.presentCount += 1;
                         }
@@ -161,8 +161,8 @@ const handleTeacherOverview = async (req, res) => {
             });
 
             // Convert attendance summary to arrays
-            const dates = attendanceSummary.map(entry => entry.date);
-            const studentsPresent = attendanceSummary.map(entry => entry.presentCount);
+            const dates = attendanceSummary.map((entry:any) => entry.date);
+            const studentsPresent = attendanceSummary.map((entry:any) => entry.presentCount);
 
             // Push class details into the response array
             classDetails.push({
@@ -184,4 +184,4 @@ const handleTeacherOverview = async (req, res) => {
     }
 };
 
-module.exports = { handleTeacherViewAttendence,handleGetTeacherAttendenceRecord,handleTeacherOverview }
+export { handleTeacherViewAttendence,handleGetTeacherAttendenceRecord,handleTeacherOverview }

@@ -1,8 +1,8 @@
-const ClassModel=require('../model/Class')
-const UserModel=require('../model/auth')
-const StudentClasses=require('../model/studentVew.model')
+import ClassModel from "../model/Class";
+import UserModel from "../model/auth";
+import StudentClasses from "../model/studentVew.model";
 
-async function handleaddStudent(req, res) {
+async function handleaddStudent(req:any, res:any) {
     const { course, semester } = req.body;
     
     try {
@@ -22,7 +22,7 @@ async function handleaddStudent(req, res) {
 
 
 
-async function handleaddStudentToList(req, res) {
+async function handleaddStudentToList(req:any, res:any) {
     const UserId = req.user.id;
     const { st_id, id } = req.body;
 
@@ -31,7 +31,7 @@ async function handleaddStudentToList(req, res) {
         const classDocument = await ClassModel.findOne({ teacher_id: UserId, _id: id });
 
         // Check if the student with st_id already exists in the class
-        const studentExists = classDocument.student.includes(st_id);
+        const studentExists = classDocument?.student.includes(st_id);
         if (studentExists) {
             return res.json({
                 error: "Student already added in the class"
@@ -53,7 +53,7 @@ async function handleaddStudentToList(req, res) {
                 studentClassesDocument = await StudentClasses.create({ student: st_id, classes: [{ class: id }] });
             } else {
                 // If studentClasses document found, update it
-                const classExists = studentClassesDocument.classes.some(c => c.class.equals(id));
+                const classExists = studentClassesDocument.classes.some((c:any) => c.class.equals(id));
                 if (!classExists) {
                     studentClassesDocument.classes.push({ class: id });
                     await studentClassesDocument.save();
@@ -81,7 +81,7 @@ async function handleaddStudentToList(req, res) {
 
 
 
-async function handleStudentList(req, res) {
+async function handleStudentList(req:any, res:any) {
     try {
       const userId = req.user.id;
       const { id } = req.body;
@@ -98,7 +98,7 @@ async function handleStudentList(req, res) {
   
 
 
-  async function handleRemoveStudent(req, res) {
+  async function handleRemoveStudent(req:any, res:any) {
     const userID = req.user.id;
     const { classid, studentid } = req.body;
 
@@ -140,5 +140,4 @@ async function handleStudentList(req, res) {
 
 
 
-
-module.exports={handleaddStudent,handleStudentList,handleaddStudentToList,handleRemoveStudent}
+export {handleaddStudent,handleStudentList,handleaddStudentToList,handleRemoveStudent}

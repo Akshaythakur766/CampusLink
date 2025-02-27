@@ -1,7 +1,7 @@
-const ClassModel = require('../model/Class');
-const studentClass = require('../model/studentVew.model');
+import ClassModel from "../model/Class";
+import studentClass from "../model/studentVew.model"
 
-async function handleGenerateAttendance(req, res) {
+async function handleGenerateAttendance(req:any, res:any) {
     try {
         const userID = req.user.id;
         const { classid, otp, time, topicname } = req.body;
@@ -74,14 +74,13 @@ async function handleGenerateAttendance(req, res) {
     }
 }
 
-
-async function handleMarkAttendence(req, res) {
+async function handleMarkAttendence(req : any, res:any) {
     const userID = req.user.id;
     const { present, classid, otp } = req.body;
 
     try {
        
-        const otp1=await ClassModel.findOne(
+        const otp1:any=await ClassModel.findOne(
             { _id: classid  });
             
         // Retrieve the OTP from the classItem
@@ -114,4 +113,4 @@ async function handleMarkAttendence(req, res) {
 }
 
 
-module.exports = { handleGenerateAttendance, handleMarkAttendence };
+export   { handleGenerateAttendance, handleMarkAttendence };

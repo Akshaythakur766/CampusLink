@@ -23,10 +23,27 @@ import {
   ViewTechAttendance,
 } from "@CampusLink/Components";
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayout } from  '@CampusLink/core';
+// import { MainLayout } from  '@CampusLink/core';
 import { Home, TeacherDash } from "@CampusLink/pages";
+import { Outlet } from "react-router/dist";
+import { ThemeProvider } from "@CampusLink/core";
+import * as React from "react";
+import { Toaster } from "react-hot-toast";
 
+ const MainLayout = () => {
+  const [Theme, setTheme] = React.useState("light");
 
+  return (
+    <>
+      <ThemeProvider>
+        <div className={` ${Theme}`}>
+          <Outlet />
+          <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
+        </div>
+      </ThemeProvider>
+    </>
+  );
+};
 export const router = createBrowserRouter([
   {
     path: "/",

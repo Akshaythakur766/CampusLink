@@ -1,9 +1,9 @@
-const userModel=require("../model/auth")
-const jwt =require('jsonwebtoken')
-const Teacher=require('../model/teacherauth')
-const CodeModel=require('../model/Code')
+import userModel from "../model/auth"
+import jwt from "jsonwebtoken"
+import Teacher from "../model/teacherauth"
+import CodeModel from "../model/Code"
 
-async function handleStudentRegister(req,res){
+async function handleStudentRegister(req:any,res:any){
     const {course,email,firstName,lastName,password,rollNo,semester,phone}=req.body;
 try{`11`
     if(!firstName){
@@ -47,7 +47,7 @@ try{`11`
 
 // Student Login Setup
 
-async function handleLogin(req, res) {
+async function handleLogin(req:any, res:any) {
     const { email, password } = req.body;
 
     try {
@@ -59,7 +59,7 @@ async function handleLogin(req, res) {
                 if (password === "staff@123") {
                     jwt.sign(
                         { email: "staff@gmail.com", name: 'Staff', role: "staff" },
-                        process.env.JWT_SECRET_KEY,
+                        process.env.JWT_SECRET_KEY || "",
                         { expiresIn: 30 * 24 * 3600 },
                         (err, token) => {
                             if (err) throw err;
@@ -77,8 +77,8 @@ async function handleLogin(req, res) {
             const confirmPassword = password === user.password;
             if (confirmPassword) {
                 jwt.sign(
-                    { email: user.email, id: user._id, name: user.name, role: "student" },
-                    process.env.JWT_SECRET_KEY,
+                    { email: user.email, id: user._id, name: user?.firstName, role: "student" },
+                    process.env.JWT_SECRET_KEY || "",
                     { expiresIn: 30 * 24 * 3600 },
                     (err, token) => {
                         if (err) throw err;
@@ -98,7 +98,7 @@ async function handleLogin(req, res) {
                     if (confirmPassword) {
                         jwt.sign(
                             { email: teacher.email, id: teacher._id, role: role },
-                            process.env.JWT_SECRET_KEY,
+                            process.env.JWT_SECRET_KEY || '',
                             { expiresIn: 30 * 24 * 3600 },
                             (err, token) => {
                                 if (err) throw err;
@@ -125,7 +125,7 @@ async function handleLogin(req, res) {
 
 //Teacher Register setup
 
-async function handleTeacherRegister(req,res){
+async function handleTeacherRegister(req:any,res:any){
     const {firstName,lastName,email,password,code,birthDate}=req.body;
 try{
     if(!firstName){
@@ -177,9 +177,9 @@ try{
     }
 }
 
-async function handleLogout(req,res){
+async function handleLogout(req:any,res:any){
     res.clearCookie('token');
     res.sendStatus(200);
 }
 
-module.exports={handleStudentRegister,handleLogin,handleTeacherRegister,handleLogout}
+export {handleStudentRegister,handleLogin,handleTeacherRegister,handleLogout}

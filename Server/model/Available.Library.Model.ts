@@ -1,4 +1,5 @@
-const mongoose= require('mongoose')
+
+import mongoose from "mongoose"
 
 const Schema=new mongoose.Schema({
     name:{
@@ -32,6 +33,6 @@ const Schema=new mongoose.Schema({
     }
 })
 
-const Available= new mongoose.model("Request",Schema)
+const Available=  mongoose.model("Request",Schema)
 
-module.exports=Available
+export default Available

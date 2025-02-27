@@ -1,8 +1,8 @@
-const ClassModel = require("../model/Class")
-const userModel=require("../model/auth")
-const studentClasses=require('../model/studentVew.model')
+import ClassModel from "../model/Class";
+import userModel from "../model/auth"
+import studentClasses from "../model/studentVew.model";
 
-async function handleCreateClass(req,res){
+async function handleCreateClass(req:any,res:any){
     const userId=req.user.id;
     const {subj,course,semester}=req.body;
     
@@ -31,7 +31,7 @@ async function handleCreateClass(req,res){
 
 }
 
-async function handleclassListdata(req,res){
+async function handleclassListdata(req:any,res:any){
 
     const userId=req.user.id;
     const ClassListdata=await ClassModel.find({teacher_id:userId});
@@ -41,7 +41,7 @@ async function handleclassListdata(req,res){
 }
 
 
-async function handleDeleteClass(req, res) {
+async function handleDeleteClass(req:any, res:any) {
     const userID = req.user.id;
     const { id } = req.body;
     console.log("id", id, "teacher", userID);
@@ -71,11 +71,9 @@ async function handleDeleteClass(req, res) {
     }
 }
 
-module.exports = handleDeleteClass;
 
 
-
-async function handleEditClass(req, res) {
+async function handleEditClass(req:any, res:any) {
     const userID = req.user.id;
     const { id,name,semester,course } = req.body;
     
@@ -98,4 +96,4 @@ async function handleEditClass(req, res) {
 
 
 
-module.exports={handleCreateClass,handleclassListdata,handleDeleteClass,handleEditClass}
+export {handleCreateClass,handleclassListdata,handleDeleteClass,handleEditClass}
