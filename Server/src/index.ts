@@ -1,8 +1,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import router from "./router/auth";
-import { MongoConnect } from "./config/db";
-import { config } from "./config/env";
+import {router} from "@CampusLink/Server/Router"
+import { MongoConnect } from "./config/Database/db";
+import { config } from "./config/Env/env";
 
 const app = express();
 // Database Connection

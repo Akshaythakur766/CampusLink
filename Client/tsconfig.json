@@ -9,7 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-      "paths": {
+    "paths": {
       // "@CampusLink/source": ["./src/*"],
       "@CampusLink/Components":["./src/components"],
       "@CampusLink/common":["./src/common"],
