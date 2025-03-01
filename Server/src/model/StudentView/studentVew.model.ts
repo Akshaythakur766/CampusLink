@@ -4,13 +4,13 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema({
   student: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: UserModel,
+    ref: UserModel.modelName,
   },
   classes: [
     {
       class: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: ClassModel,
+        ref: ClassModel.modelName,
       },
       otp: {
         type: Number,

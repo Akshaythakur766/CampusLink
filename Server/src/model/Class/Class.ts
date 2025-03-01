@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import {TeacherAuth , UserModel} from "@CampusLink/Server/Model"
-
+import {  UserModel,TeacherAuth} from "@CampusLink/Server/Model"
 const classSchema =new mongoose.Schema({
     subj:{
         type:String,
@@ -14,11 +13,11 @@ const classSchema =new mongoose.Schema({
     
     teacher_id:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:TeacherAuth
+        ref:"TeacherAuth"
     },
     student:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:UserModel
+        ref:UserModel.modelName
     }],
     otp:{
         type:Number

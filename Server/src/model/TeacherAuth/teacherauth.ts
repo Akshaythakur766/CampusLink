@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const teacherSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   firstName: {
     type: String,
   },
@@ -27,6 +27,6 @@ const teacherSchema = new mongoose.Schema({
   },
 });
 
-const TeacherAuth = mongoose.model("TeacherAuth", teacherSchema);
+const TeacherAuth = mongoose.model("TeacherAuth", schema);
 
 export  {TeacherAuth};
