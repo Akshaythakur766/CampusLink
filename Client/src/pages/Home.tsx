@@ -1,8 +1,5 @@
-import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Darkmode from "../components/Darkmode";
-
+import { Darkmode, Footer, Navbar } from "@CampusLink/appComponents";
 export const Home = () => {
   return (
     <>

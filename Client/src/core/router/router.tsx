@@ -21,7 +21,7 @@ import {
   ViewAttdRecord,
   ViewAttendance,
   ViewTechAttendance,
-} from "@CampusLink/Components";
+} from "@CampusLink/appComponents";
 import { createBrowserRouter } from "react-router-dom";
 // import { MainLayout } from  '@CampusLink/core';
 import { Home, TeacherDash } from "@CampusLink/pages";
