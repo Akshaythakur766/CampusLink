@@ -6,3 +6,5 @@
 # Ignore package-lock.json in both client and server directories
 /Client/package-lock.json
 /Server/package-lock.json
+
+/Server/pnpm-lock.yaml

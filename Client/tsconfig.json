@@ -9,14 +9,20 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-      "paths": {
+    "paths": {
       // "@CampusLink/source": ["./src/*"],
-      "@CampusLink/Components":["./src/components"],
+      "@CampusLink/coreComponents":["./src/components"],
       "@CampusLink/common":["./src/common"],
       "@CampusLink/core":["./src/core"],
       "@CampusLink/auth":["./src/auth"],
       "@CampusLink/assets":["./src/assets"],
       "@CampusLink/pages":["./src/pages"],
+      "@CampusLink/setting-module":["./src/libs/settings-module"],
+      "@CampusLink/calendar-module":["./src/libs/calendar-module"],
+      "@CampusLink/appComponents":["./src/libs/components"],
+      "@CampusLink/hooks":["./src/libs/hooks"],
+      "@CampusLink/config":["./src/libs/config"],
+      "@CampusLink/helper":["./src/libs/helper"]
     },
     "allowJs": true,
     "checkJs": false

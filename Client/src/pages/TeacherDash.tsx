@@ -1,7 +1,7 @@
-import Sidebar from "../components/Sidebar";
 import { DashContext, DashProvider } from "@CampusLink/core";
 import { Outlet, } from "react-router-dom";
 import { useEffect } from "react";
+import { Sidebar } from "@CampusLink/appComponents";
 
 export const TeacherDash = () => {
   return (

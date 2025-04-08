@@ -9,7 +9,6 @@ export * from "./router/router";
 
 //Layout -----------
 export * from "./Layout/layout";
-export * from "./Layout/layout";
 
 // Utils-----------
 export * from "./utils/instance";

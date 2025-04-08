@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@CampusLink/Server/Controller": ["./src/Controller"],
+      "@CampusLink/Server/MiddleWares": ["./src/middlewares"],
+      "@CampusLink/Server/Model": ["./src/model"],
+      "@CampusLink/Server/Router": ["./src/router"],
+      "@CampusLink/Server/Utils": ["./src/utils"],
+      "@CampusLink/Server/Config": ["./src/config"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
